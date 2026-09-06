@@ -4584,3 +4584,447 @@ button { font: inherit; }
     transition: none !important;
   }
 }
+
+
+/* =========================================================
+   FOOTER — FINAL TYPOGRAPHY + HORIZONTAL-OVERFLOW FIX
+   ========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.mech-footer {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 380px;
+  overflow: hidden;
+
+  background: #05080f;
+  border-top: 1px solid rgba(255, 79, 135, 0.22);
+  border-bottom: 1px solid rgba(255, 79, 135, 0.16);
+}
+
+.mech-footer-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  background-image: url("/images/foot-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
+}
+
+/* Darken only enough for the center content to read cleanly. */
+.mech-footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse 38% 72% at 50% 53%,
+      rgba(5, 8, 15, 0.22) 0%,
+      rgba(5, 8, 15, 0.42) 62%,
+      rgba(5, 8, 15, 0.54) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 8, 15, 0.34),
+      transparent 28%,
+      transparent 72%,
+      rgba(5, 8, 15, 0.34)
+    );
+}
+
+/* Centered content block */
+.mech-footer-inner {
+  position: relative;
+  min-height: 380px;
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 34px;
+  padding-bottom: 86px;
+}
+
+.mech-footer-center {
+  position: relative;
+  z-index: 4;
+
+  width: min(520px, 100%);
+  padding: 34px 34px 36px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Subtle blueprint panel behind the centered content */
+.mech-footer-center::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border: 1px solid rgba(157, 166, 184, 0.11);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 9%,
+      rgba(255, 79, 135, 0.05) 9.15%,
+      transparent 9.3%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 91%,
+      rgba(255, 79, 135, 0.05) 91.15%,
+      transparent 91.3%
+    ),
+    rgba(4, 7, 12, 0.10);
+
+  clip-path: polygon(
+    18px 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% calc(100% - 18px),
+    calc(100% - 18px) 100%,
+    18px 100%,
+    0 calc(100% - 18px),
+    0 18px
+  );
+
+  pointer-events: none;
+}
+
+/* Small top/bottom precision marks */
+.mech-footer-frame {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  width: min(660px, 70vw);
+  height: 1px;
+
+  transform: translateX(-50%);
+  background: rgba(157, 166, 184, 0.12);
+  pointer-events: none;
+}
+
+.mech-footer-frame::before,
+.mech-footer-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 54px;
+  height: 1px;
+  background: rgba(255, 79, 135, 0.62);
+}
+
+.mech-footer-frame::before {
+  left: 0;
+}
+
+.mech-footer-frame::after {
+  right: 0;
+}
+
+.mech-footer-frame-top {
+  top: calc(50% - 122px);
+}
+
+.mech-footer-frame-bottom {
+  bottom: calc(50% - 122px);
+}
+
+/* Brand */
+.mech-footer-logo {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+
+  color: #ffffff !important;
+
+  font-family: var(--font-sora), "Sora", sans-serif !important;
+  font-size: clamp(34px, 4.1vw, 52px) !important;
+  line-height: 0.95 !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.035em !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  text-shadow: 0 0 24px rgba(255, 79, 135, 0.06);
+
+  transition: transform 200ms ease, text-shadow 200ms ease;
+}
+
+.mech-footer-logo-main {
+  color: #ffffff;
+}
+
+.mech-footer-logo-year {
+  color: #ff4f87;
+}
+
+.mech-footer-logo:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 0 18px rgba(255, 79, 135, 0.14);
+}
+
+/* Links */
+.mech-footer-nav {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+}
+
+.mech-footer-nav a {
+  position: relative;
+
+  color: #e7e9ee;
+
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+
+  padding-bottom: 7px;
+
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.mech-footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+  background: #ff4f87;
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 200ms ease;
+}
+
+.mech-footer-nav a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.mech-footer-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Social row */
+.mech-footer-social {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+
+.mech-footer-social::before,
+.mech-footer-social::after {
+  content: "";
+  width: 64px;
+  height: 1px;
+  background: rgba(255, 79, 135, 0.28);
+}
+
+.mech-footer-social::before {
+  margin-right: 8px;
+}
+
+.mech-footer-social::after {
+  margin-left: 8px;
+}
+
+.mech-footer-social a {
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: 0 0 40px;
+
+  color: #dfe2e8;
+  border: 1px solid rgba(157, 166, 184, 0.25);
+  background: rgba(5, 8, 15, 0.48);
+
+  line-height: 0 !important;
+  text-align: center;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.mech-footer-social a svg {
+  display: block !important;
+  width: 17px !important;
+  height: 17px !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+  color: currentColor;
+}
+
+.mech-footer-social a:hover {
+  color: #ffffff;
+  border-color: rgba(255, 79, 135, 0.58);
+  background: rgba(255, 79, 135, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(255, 79, 135, 0.12);
+}
+
+/* Corner engineering marks */
+.mech-footer-corner {
+  position: absolute;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+}
+
+.mech-footer-corner::before,
+.mech-footer-corner::after {
+  content: "";
+  position: absolute;
+  background: #ff4f87;
+}
+
+.mech-footer-corner-left {
+  left: 0;
+  bottom: 22px;
+  border-left: 1px solid rgba(255, 79, 135, 0.55);
+  border-bottom: 1px solid rgba(255, 79, 135, 0.55);
+}
+
+.mech-footer-corner-left::before {
+  left: 8px;
+  bottom: 0;
+  width: 18px;
+  height: 1px;
+}
+
+.mech-footer-corner-left::after {
+  left: 0;
+  top: 8px;
+  width: 1px;
+  height: 18px;
+}
+
+.mech-footer-corner-right {
+  right: 0;
+  top: 22px;
+  border-top: 1px solid rgba(255, 79, 135, 0.55);
+  border-right: 1px solid rgba(255, 79, 135, 0.55);
+}
+
+.mech-footer-corner-right::before {
+  right: 8px;
+  top: 0;
+  width: 18px;
+  height: 1px;
+}
+
+.mech-footer-corner-right::after {
+  right: 0;
+  bottom: 8px;
+  width: 1px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .mech-footer {
+    min-height: 340px;
+  }
+
+  .mech-footer-inner {
+    min-height: 340px;
+    width: min(100% - 28px, 1200px);
+  }
+
+  .mech-footer-center {
+    padding: 30px 18px 32px;
+  }
+
+  .mech-footer-logo {
+    font-size: 29px !important;
+  }
+
+  .mech-footer-nav {
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .mech-footer-nav a {
+    font-size: 11px;
+  }
+
+  .mech-footer-social {
+    margin-top: 26px;
+  }
+
+  .mech-footer-social::before,
+  .mech-footer-social::after {
+    width: 28px;
+  }
+
+  .mech-footer-frame {
+    width: 82vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mech-footer-logo,
+  .mech-footer-nav a,
+  .mech-footer-nav a::after,
+  .mech-footer-social a {
+    transition: none !important;
+  }
+}
+
