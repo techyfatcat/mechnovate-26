@@ -4,7 +4,6 @@ import { StatsStrip } from "./StatsStrip";
 import { AboutSection } from "./AboutSection";
 import { DisciplinesSection } from "./DisciplinesSection";
 import { TeamSection } from "./TeamSection";
-import { CtaBanner } from "./CtaBanner";
 import { Footer } from "@/components/layout/Footer";
 
 export function HomePage() {
@@ -17,7 +16,6 @@ export function HomePage() {
         <AboutSection />
         <DisciplinesSection />
         <TeamSection />
-        <CtaBanner />
       </main>
       <Footer />
     </>
