@@ -4354,3 +4354,233 @@ button { font: inherit; }
   }
 }
 
+/* =========================================================
+   MECHNOVATE '26 — MINIMAL BLUEPRINT FOOTER
+   Background image: /images/foot-bg.png
+   ========================================================= */
+
+.mech-footer {
+  position: relative;
+  isolation: isolate;
+  min-height: 330px;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 79, 135, 0.28);
+  background: #05080f;
+}
+
+.mech-footer-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(5, 8, 15, 0.38) 0%,
+      rgba(5, 8, 15, 0.20) 42%,
+      rgba(5, 8, 15, 0.50) 100%
+    ),
+    url("/images/foot-bg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
+}
+
+.mech-footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 8, 15, 0.76) 0%,
+      rgba(5, 8, 15, 0.26) 28%,
+      rgba(5, 8, 15, 0.18) 72%,
+      rgba(5, 8, 15, 0.62) 100%
+    );
+}
+
+.mech-footer-inner {
+  min-height: 330px;
+  padding: 56px 0 34px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mech-footer-brand {
+  display: flex;
+  justify-content: center;
+}
+
+.mech-footer-logo {
+  color: #f5f5f7;
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    transform 220ms ease,
+    text-shadow 220ms ease;
+}
+
+.mech-footer-logo span {
+  color: var(--accent);
+}
+
+.mech-footer-logo:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 0 16px rgba(255, 79, 135, 0.18);
+}
+
+.mech-footer-nav {
+  margin-top: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+}
+
+.mech-footer-nav a {
+  position: relative;
+  padding: 0 0 7px;
+
+  color: #e6e8ee;
+
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.mech-footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+  background: var(--accent);
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 200ms ease;
+}
+
+.mech-footer-nav a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.mech-footer-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.mech-footer-social {
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mech-footer-social a {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  color: #dfe2e8;
+  border: 1px solid rgba(157, 166, 184, 0.26);
+  background: rgba(5, 8, 15, 0.46);
+
+  line-height: 0;
+  text-align: center;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.mech-footer-social a svg {
+  display: block !important;
+  width: 17px;
+  height: 17px;
+  margin: 0 !important;
+  flex: 0 0 auto;
+  color: currentColor;
+}
+
+.mech-footer-social a:hover {
+  color: #fff;
+  border-color: rgba(255, 79, 135, 0.58);
+  background: rgba(255, 79, 135, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(255, 79, 135, 0.12);
+}
+
+@media (max-width: 640px) {
+  .mech-footer {
+    min-height: 300px;
+  }
+
+  .mech-footer-inner {
+    min-height: 300px;
+    padding: 50px 0 30px;
+  }
+
+  .mech-footer-logo {
+    font-size: 23px;
+    letter-spacing: 0.07em;
+  }
+
+  .mech-footer-nav {
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .mech-footer-nav a {
+    font-size: 11px;
+  }
+
+  .mech-footer-social {
+    margin-top: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mech-footer-logo,
+  .mech-footer-nav a,
+  .mech-footer-nav a::after,
+  .mech-footer-social a {
+    transition: none !important;
+  }
+}

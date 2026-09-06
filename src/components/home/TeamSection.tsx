@@ -110,9 +110,7 @@ export function TeamSection() {
                   </div>
 
                   <div className="team-card-copy">
-                    <div className="team-card-index">
-                      MEMBER // {String(index + 1).padStart(2, "0")}
-                    </div>
+          
                     <h3 className="team-card-name">{member.name}</h3>
                     <p className="team-card-role">{member.role}</p>
                   </div>
