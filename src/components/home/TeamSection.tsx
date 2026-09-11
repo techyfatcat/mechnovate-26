@@ -94,25 +94,34 @@ export function TeamSection() {
                   aria-hidden={position !== "center"}
                 >
                   <div className="team-card-visual">
-                    <div className="team-card-grid" aria-hidden="true" />
-
                     {image ? (
                       <img
                         src={image}
-                        alt=""
+                        alt={member.name}
                         className="team-card-photo"
                       />
                     ) : (
-                      <div className="team-card-placeholder" aria-hidden="true">
+                      <div
+                        className="team-card-placeholder"
+                        aria-hidden="true"
+                      >
                         <span>{getInitials(member.name)}</span>
                       </div>
                     )}
                   </div>
 
                   <div className="team-card-copy">
-          
-                    <h3 className="team-card-name">{member.name}</h3>
-                    <p className="team-card-role">{member.role}</p>
+                    <h3 className="team-card-name">
+                      {member.name}
+                    </h3>
+
+                    <p className="team-card-role">
+                      {member.role}
+                    </p>
+
+                    <p className="team-card-tag">
+                      {member.tag}
+                    </p>
                   </div>
                 </article>
               );
@@ -130,17 +139,22 @@ export function TeamSection() {
                 <ChevronLeft aria-hidden="true" />
               </button>
 
-              <div className="team-carousel-dots" aria-label="Team members">
+              <div
+                className="team-carousel-dots"
+                aria-label="Team members"
+              >
                 {team.map((member, index) => (
                   <button
                     type="button"
-                    key={member.name}
+                    key={`${member.name}-${index}`}
                     className={`team-carousel-dot ${
                       index === activeIndex ? "active" : ""
                     }`}
                     onClick={() => setActiveIndex(index)}
                     aria-label={`Show ${member.name}`}
-                    aria-current={index === activeIndex ? "true" : undefined}
+                    aria-current={
+                      index === activeIndex ? "true" : undefined
+                    }
                   />
                 ))}
               </div>

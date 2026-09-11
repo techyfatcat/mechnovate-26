@@ -12,4 +12,6 @@ export interface Discipline {
 export interface TeamMember {
   name: string;
   role: string;
+  tag: string;
+  image?: string;
 }

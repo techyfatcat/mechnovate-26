@@ -15,10 +15,46 @@ export const disciplines: Discipline[] = [
 ];
 
 export const team: TeamMember[] = [
-  { name: "Rohan Verma", role: "President" },
-  { name: "Aaditya Singh", role: "Vice President" },
-  { name: "Arjun Mehta", role: "Technical Lead" },
-  { name: "Ishita Sharma", role: "Design Lead" },
-  { name: "Kartik Rao", role: "Outreach Head" },
-  { name: "Priya Nair", role: "Marketing Head" },
+  {
+    name: "Dr. G. Viswanathan",
+    role: "Founder & Chancellor, VIT",
+    tag: "Chief Patron",
+    image: "/images/team/member1.jpeg",
+  },
+  {
+    name: "Dr. VS Kanchana Bhaskaran",
+    role: "Vice Chancellor, VIT",
+    tag: "Co-Patron",
+    image: "/images/team/member2.jpg",
+  },
+  {
+    name: "Dr. Paratha Sarathi Mallick",
+    role: "Pro Vice Chancellor, VIT",
+    tag: "Co-Patron",
+    image: "/images/team/member3.png",
+  },
+  {
+    name: "Dr. Naiju C.D.",
+    role: "Director Of Student Welfare",
+    tag: "Symposium Chair",
+    image: "/images/team/member4.jpg",
+  },
+  {
+    name: "Dr. Anthony Xavier M",
+    role: "Dean, Academics",
+    tag: "ASME-VIT Advisor",
+    image: "/images/team/member5.jpg",
+  },
+  {
+    name: "Dr. Jeyapandiarajan P",
+    role: "Associate Professor, School of Mechanical Engineering",
+    tag: "Convenor",
+    image: "/images/team/member6.jpg",
+  },
+  {
+    name: "Dr. Joel J",
+    role: "Associate Professor Senior, School of Mechanical Engineering",
+    tag: "Co-Convenor",
+    image: "/images/team/member7.png",
+  },
 ];
