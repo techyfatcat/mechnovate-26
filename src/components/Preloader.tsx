@@ -44,14 +44,9 @@ export default function Preloader() {
           if (char === " " || locked) return char;
 
           // Sequential reveal: only scramble the active character position
-          if (
-            !forceLocked &&
-            currentActiveIndex !== -1 &&
-            index > currentActiveIndex
-          ) {
-            return " ";
-          }
-
+          // Keep every character rendered in its natural position.
+          // Unrevealed characters scramble instead of turning into spaces,
+          // so the title never shifts/reflows as letters lock in.
           return randomChar();
         })
         .join("");
@@ -163,10 +158,6 @@ export default function Preloader() {
 
         {/* Main content */}
         <div className="mech-preloader-content">
-          <div className="mech-preloader-status">
-            <span className="mech-preloader-dot" />
-            SYSTEM INITIALIZING
-          </div>
 
           <div className="mech-preloader-title">
             {displayText.split("").map((char, index) => {
@@ -356,14 +347,15 @@ export default function Preloader() {
             animation: mech-dot-pulse 850ms ease-in-out infinite;
           }
 
-          /* TITLE & SPACING */
+          /* TITLE & CHARACTER SPACING */
+          /* TITLE & STABLE CHARACTER LAYOUT */
           .mech-preloader-title {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.1em;
 
             min-height: 82px;
+            width: 100%;
 
             white-space: nowrap;
 
@@ -374,33 +366,56 @@ export default function Preloader() {
             font-size: clamp(28px, 4.5vw, 58px);
             font-weight: 700;
 
+            line-height: 1;
+            letter-spacing: -0.035em;
+
+            text-align: center;
+
             text-shadow: 0 0 18px rgba(255, 79, 135, 0.08);
           }
 
+          /*
+           * Use natural glyph widths instead of a fixed-width box.
+           * This prevents wide letters such as M/W from colliding
+           * while avoiding artificial gaps around narrow glyphs.
+           */
           .mech-preloader-title span {
             display: inline-block;
-            width: 0.62em;
+
+            width: auto;
+            min-width: 0;
+            flex: none;
+
             text-align: center;
+            transform-origin: center center;
 
             transition:
-              color 200ms cubic-bezier(0.16, 1, 0.3, 1),
-              text-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 200ms cubic-bezier(0.16, 1, 0.3, 1);
+              color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              text-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+            will-change: transform, opacity;
           }
 
           .mech-preloader-title span.hidden-char {
             opacity: 0;
+            transform: translateY(2px);
           }
 
           .mech-preloader-title span.scrambling {
-            color: rgba(245, 245, 247, 0.4);
-            opacity: 0.85;
+            color: rgba(245, 245, 247, 0.42);
+            opacity: 0.8;
 
-            text-shadow: 0 0 12px rgba(255, 79, 135, 0.25);
+            text-shadow: 0 0 12px rgba(255, 79, 135, 0.22);
 
+            /*
+             * Only move vertically while scrambling.
+             * Never scale characters, which prevents collisions.
+             */
             transform: translateY(calc(var(--random-offset, 0) * 1px));
-            will-change: transform;
+
+            will-change: transform, opacity;
           }
 
           /* Standard Letter Lock */
@@ -410,21 +425,23 @@ export default function Preloader() {
 
             text-shadow:
               0 0 12px rgba(255, 79, 135, 0.6),
-              0 0 32px rgba(255, 79, 135, 0.2);
+              0 0 30px rgba(255, 79, 135, 0.18);
 
-            animation: mech-letter-lock 240ms cubic-bezier(0.16, 1, 0.3, 1);
+            animation:
+              mech-letter-lock 240ms cubic-bezier(0.16, 1, 0.3, 1);
           }
 
-          /* Ultra Smooth Final Character Entry */
+          /* Final Character */
           .mech-preloader-title span.final-locked {
             color: var(--accent, #ff4f87);
             opacity: 1;
 
             text-shadow:
-              0 0 16px rgba(255, 79, 135, 0.85),
-              0 0 40px rgba(255, 79, 135, 0.4);
+              0 0 15px rgba(255, 79, 135, 0.8),
+              0 0 35px rgba(255, 79, 135, 0.35);
 
-            animation: mech-final-lock 420ms cubic-bezier(0.16, 1, 0.3, 1)
+            animation:
+              mech-final-lock 360ms cubic-bezier(0.16, 1, 0.3, 1)
               forwards;
           }
 
@@ -657,39 +674,40 @@ export default function Preloader() {
 
           @keyframes mech-letter-lock {
             0% {
-              opacity: 0.3;
-              transform: scale(0.88);
+              opacity: 0.35;
+              transform: translateY(3px);
               filter: blur(2px);
             }
 
-            50% {
+            45% {
               opacity: 1;
-              transform: scale(1.05);
+              transform: translateY(-1px);
               filter: blur(0);
             }
 
             100% {
               opacity: 1;
-              transform: scale(1);
+              transform: translateY(0);
+              filter: blur(0);
             }
           }
 
           @keyframes mech-final-lock {
             0% {
-              opacity: 0.2;
-              transform: scale(0.8) translateY(2px);
-              filter: blur(4px);
+              opacity: 0;
+              transform: translateY(5px);
+              filter: blur(3px);
             }
 
-            60% {
+            55% {
               opacity: 1;
-              transform: scale(1.14) translateY(0);
+              transform: translateY(-1px);
               filter: blur(0);
             }
 
             100% {
               opacity: 1;
-              transform: scale(1) translateY(0);
+              transform: translateY(0);
               filter: blur(0);
             }
           }
@@ -702,7 +720,13 @@ export default function Preloader() {
 
             .mech-preloader-title {
               font-size: clamp(20px, 6vw, 34px);
-              gap: 0.06em;
+              letter-spacing: -0.025em;
+              min-height: 55px;
+            }
+
+            .mech-preloader-title span {
+              width: auto;
+              flex-basis: auto;
             }
 
             .mech-preloader-progress {
