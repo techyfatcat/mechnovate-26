@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Hero } from "./Hero";
-import { StatsStrip } from "./StatsStrip";
+import { SponsorsMarquee } from "./StatsStrip";
 import { AboutSection } from "./AboutSection";
 import { DisciplinesSection } from "./DisciplinesSection";
 import { TeamSection } from "./TeamSection";
@@ -12,7 +12,7 @@ export function HomePage() {
     <Header />
       <main>
         <Hero />
-        <StatsStrip />
+        <SponsorsMarquee />
         <AboutSection />
         <DisciplinesSection />
         <TeamSection />

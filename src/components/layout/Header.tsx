@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 
 const navigation = [
   { label: "Home", href: "/" },
+  { label: "Recap", href: "/recap" },
   { label: "Events", href: "/events" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -54,18 +54,6 @@ export function Header() {
               </Link>
             ))}
           </nav>
-
-          {/* Register CTA */}
-          <Link
-            href="/register"
-            className="header-register"
-            aria-label="Register for Mechnovate '26"
-          >
-            <span>REGISTER</span>
-            <span className="register-arrow" aria-hidden="true">
-              →
-            </span>
-          </Link>
 
           {/* Mobile Menu Button */}
           <button

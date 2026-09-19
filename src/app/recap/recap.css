@@ -1,0 +1,1068 @@
+/* =========================================================
+   RECAP PAGE
+========================================================= */
+
+.recap-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #050507;
+  color: #f5f5f5;
+  overflow: hidden;
+  font-family: var(--font-sora), sans-serif;
+}
+
+.recap-page h1,
+.recap-page h2,
+.recap-page .hero-recap,
+.recap-page .stat strong {
+  font-family: var(--font-oxanium), sans-serif;
+}
+
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.section-label {
+  font-family: var(--font-oxanium), sans-serif;
+  color: #ff4f9a;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.recap-hero {
+  position: relative;
+  min-height: 850px;
+  height: 100vh;
+  max-height: 1000px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 48, 133, 0.09),
+      transparent 38%
+    ),
+    #050507;
+}
+
+
+/* Background grid */
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+}
+
+
+/* Pink atmospheric glow */
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.hero-glow-one {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 40, 130, 0.09);
+  top: 10%;
+  left: 25%;
+}
+
+.hero-glow-two {
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 40, 130, 0.07);
+  bottom: 5%;
+  right: 20%;
+}
+
+
+/* =========================================================
+   HERO CENTER
+========================================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+
+  width: min(600px, 55vw);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.hero-kicker {
+  font-family: var(--font-oxanium), sans-serif;
+
+  font-size: 12px;
+  letter-spacing: 0.3em;
+
+  color: #ff579c;
+
+  margin: 0 0 22px;
+}
+
+
+.hero-content h1 {
+  font-size: clamp(36px, 4.5vw, 72px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.04em;
+
+  margin: 0;
+
+  font-weight: 500;
+}
+
+.hero-content h1 span {
+  color: #ff4f9a;
+}
+
+
+.hero-recap {
+  margin-top: 4px;
+
+  font-size: clamp(75px, 10vw, 150px);
+
+  line-height: 0.85;
+
+  font-weight: 800;
+
+  letter-spacing: -0.08em;
+
+  color: transparent;
+
+  -webkit-text-stroke: 2px #ff4f9a;
+
+  transform: rotate(-3deg);
+}
+
+
+.hero-description {
+  margin: 30px 0 0;
+
+  font-family: var(--font-oxanium), sans-serif;
+
+  font-size: 16px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  color: #ddd;
+}
+
+
+.hero-line {
+  width: 100px;
+  height: 1px;
+
+  background: #ff4f9a;
+
+  margin: 26px 0 20px;
+}
+
+
+.hero-note {
+  max-width: 430px;
+
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.52);
+}
+
+
+/* =========================================================
+   POLAROIDS
+========================================================= */
+
+.polaroid {
+  position: absolute;
+
+  z-index: 5;
+
+  padding: 10px 10px 28px;
+
+  background: #eeeeec;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.55);
+
+  color: #151515;
+
+  transition:
+    transform 0.5s ease,
+    z-index 0.3s ease;
+}
+
+.polaroid:hover {
+  z-index: 20;
+  transform: rotate(0deg) scale(1.05);
+}
+
+
+.polaroid-image {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+
+.polaroid-image img {
+  object-fit: cover;
+}
+
+
+.polaroid span {
+  position: absolute;
+
+  bottom: 7px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-family: cursive;
+
+  font-size: 13px;
+
+  color: #252525;
+}
+
+
+/* =========================================================
+   HERO POLAROID POSITIONS
+========================================================= */
+
+.polaroid-one {
+  width: 250px;
+  height: 300px;
+
+  left: 7%;
+  top: 13%;
+
+  transform: rotate(-8deg);
+}
+
+.polaroid-two {
+  width: 190px;
+  height: 245px;
+
+  left: 3%;
+  bottom: 12%;
+
+  transform: rotate(8deg);
+}
+
+.polaroid-three {
+  width: 230px;
+  height: 220px;
+
+  left: 18%;
+  bottom: 5%;
+
+  transform: rotate(-5deg);
+}
+
+.polaroid-four {
+  width: 230px;
+  height: 270px;
+
+  right: 8%;
+  top: 8%;
+
+  transform: rotate(7deg);
+}
+
+.polaroid-five {
+  width: 260px;
+  height: 240px;
+
+  right: 15%;
+  bottom: 8%;
+
+  transform: rotate(-7deg);
+}
+
+
+/* =========================================================
+   SIDE TEXT
+========================================================= */
+
+.hero-side-text {
+  position: absolute;
+
+  z-index: 4;
+
+  font-family: cursive;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  line-height: 1.25;
+
+  font-size: 18px;
+}
+
+.hero-side-text-left {
+  left: 2%;
+  top: 50%;
+
+  transform: rotate(-8deg);
+}
+
+.hero-side-text-right {
+  right: 2%;
+  top: 48%;
+
+  transform: rotate(8deg);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.recap-about {
+  position: relative;
+
+  padding: 150px 7%;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 42, 132, 0.05),
+      transparent 35%
+    ),
+    #070709;
+}
+
+
+.about-layout {
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+
+.about-content h2 {
+  font-size: clamp(42px, 5vw, 70px);
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  margin: 0;
+
+  letter-spacing: -0.04em;
+}
+
+.about-content h2 span {
+  color: #ff4f9a;
+}
+
+
+.about-lead {
+  font-family: var(--font-oxanium), sans-serif;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  color: #ff4f9a;
+
+  font-size: 13px;
+
+  margin: 20px 0 30px;
+}
+
+
+.about-content > p:not(.about-lead) {
+  max-width: 550px;
+
+  color: rgba(255, 255, 255, 0.57);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 25px;
+
+  margin-top: 55px;
+}
+
+
+.stat {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.stat strong {
+  font-size: 38px;
+
+  font-weight: 600;
+
+  color: #ff4f9a;
+}
+
+
+.stat span {
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   ABOUT COLLAGE
+========================================================= */
+
+.about-collage {
+  position: relative;
+
+  height: 570px;
+}
+
+
+.about-photo {
+  position: absolute;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.about-photo img {
+  object-fit: cover;
+}
+
+
+.about-photo-main {
+  width: 65%;
+  height: 70%;
+
+  right: 4%;
+  top: 7%;
+
+  transform: rotate(3deg);
+}
+
+
+.about-photo-two {
+  width: 43%;
+  height: 38%;
+
+  left: 2%;
+  bottom: 8%;
+
+  transform: rotate(-7deg);
+
+  z-index: 3;
+}
+
+
+.about-photo-three {
+  width: 42%;
+  height: 37%;
+
+  right: 0;
+  bottom: 0;
+
+  transform: rotate(-4deg);
+
+  z-index: 4;
+}
+
+
+.about-handwriting {
+  position: absolute;
+
+  z-index: 6;
+
+  right: 3%;
+  bottom: 7%;
+
+  font-family: cursive;
+
+  font-size: 32px;
+
+  line-height: 1.05;
+
+  color: white;
+
+  transform: rotate(-8deg);
+
+  text-shadow:
+    0 0 25px rgba(255, 70, 150, 0.25);
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.recap-gallery {
+  padding: 140px 7% 160px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  background: #050507;
+}
+
+
+.gallery-heading {
+  max-width: 1300px;
+
+  margin: 0 auto 45px;
+}
+
+
+.gallery-heading h2 {
+  margin: 0;
+
+  font-size: clamp(38px, 5vw, 65px);
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  font-weight: 500;
+}
+
+
+.gallery-heading h2 span {
+  color: #ff4f9a;
+}
+
+
+.gallery-heading p {
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 13px;
+
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.gallery-filters {
+  max-width: 1300px;
+
+  margin: 0 auto 45px;
+
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+
+.filter {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  padding: 10px 22px;
+
+  border-radius: 50px;
+
+  font-family: var(--font-sora), sans-serif;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+
+.filter:hover {
+  border-color: #ff4f9a;
+
+  color: white;
+}
+
+
+.filter.active {
+  background: #ff4f9a;
+
+  border-color: #ff4f9a;
+
+  color: #050507;
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.gallery-grid {
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+
+.gallery-card {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.gallery-image {
+  position: absolute;
+
+  inset: 0;
+}
+
+
+.gallery-image img {
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+
+.gallery-card:hover img {
+  transform: scale(1.06);
+}
+
+
+.gallery-overlay {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 50px 18px 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.85)
+    );
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition: 0.3s ease;
+}
+
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+.gallery-overlay span {
+  font-family: var(--font-oxanium), sans-serif;
+
+  color: #ff4f9a;
+
+  text-transform: uppercase;
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+}
+
+
+.gallery-overlay strong {
+  font-family: var(--font-sora), sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   VIDEO PLAY BUTTON
+========================================================= */
+
+.video-play {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 54px;
+  height: 54px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: rgba(255, 79, 154, 0.92);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+
+  box-shadow:
+    0 0 35px rgba(255, 79, 154, 0.35);
+}
+
+
+.video-play span {
+  width: 0;
+  height: 0;
+
+  margin-left: 4px;
+
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid #fff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .recap-hero {
+    min-height: 750px;
+  }
+
+  .polaroid-one {
+    width: 190px;
+    height: 230px;
+  }
+
+  .polaroid-two {
+    width: 150px;
+    height: 190px;
+  }
+
+  .polaroid-three {
+    width: 180px;
+    height: 175px;
+  }
+
+  .polaroid-four {
+    width: 180px;
+    height: 215px;
+  }
+
+  .polaroid-five {
+    width: 190px;
+    height: 180px;
+  }
+
+  .about-layout {
+    gap: 50px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .recap-hero {
+    min-height: 720px;
+
+    height: auto;
+
+    padding: 100px 20px 90px;
+  }
+
+
+  .hero-content {
+    width: 100%;
+
+    max-width: 500px;
+  }
+
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+
+  .hero-recap {
+    font-size: 75px;
+  }
+
+
+  .hero-note {
+    max-width: 320px;
+  }
+
+
+  /* Make collage images smaller */
+
+  .polaroid-one {
+    width: 130px;
+    height: 155px;
+
+    left: -15px;
+    top: 80px;
+  }
+
+
+  .polaroid-two {
+    width: 110px;
+    height: 135px;
+
+    left: -15px;
+    bottom: 70px;
+  }
+
+
+  .polaroid-three {
+    width: 130px;
+    height: 125px;
+
+    left: 5%;
+    bottom: 15px;
+  }
+
+
+  .polaroid-four {
+    width: 130px;
+    height: 155px;
+
+    right: -15px;
+    top: 70px;
+  }
+
+
+  .polaroid-five {
+    width: 135px;
+    height: 125px;
+
+    right: 2%;
+    bottom: 40px;
+  }
+
+
+  .polaroid span {
+    font-size: 8px;
+  }
+
+
+  .hero-side-text {
+    display: none;
+  }
+
+
+  /* ABOUT */
+
+  .recap-about {
+    padding: 90px 20px;
+  }
+
+
+  .about-layout {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+
+  .about-content h2 {
+    font-size: 42px;
+  }
+
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+    margin-top: 40px;
+  }
+
+
+  .about-collage {
+    height: 420px;
+  }
+
+
+  /* GALLERY */
+
+  .recap-gallery {
+    padding: 90px 20px 100px;
+  }
+
+
+  .gallery-heading h2 {
+    font-size: 40px;
+  }
+
+
+  .gallery-filters {
+    gap: 7px;
+  }
+
+
+  .filter {
+    padding: 8px 15px;
+
+    font-size: 10px;
+  }
+
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+  }
+
+
+  .gallery-overlay {
+    opacity: 1;
+
+    transform: none;
+
+    padding: 35px 10px 10px;
+  }
+
+
+  .gallery-overlay strong {
+    font-size: 10px;
+  }
+
+
+  .gallery-overlay span {
+    font-size: 7px;
+  }
+
+
+  .video-play {
+    width: 40px;
+    height: 40px;
+  }
+
+}

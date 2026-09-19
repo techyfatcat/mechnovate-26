@@ -1,25 +1,32 @@
-import { CalendarDays, Cog, Trophy, Users } from "lucide-react";
-import { stats } from "@/data/home";
+"use client";
 
-const icons = [Users, Cog, Trophy, CalendarDays];
+const sponsors = [
+  "Orbital Dynamics",
+  "Vertex Robotics",
+  "Ironclad Motors",
+  "Nova Systems",
+  "Apex Fabrication",
+  "Quantum Gears",
+  "Circuit & Steel",
+  "Helios Industries",
+];
 
-export function StatsStrip() {
+export function SponsorsMarquee() {
   return (
-    <section className="stats-wrap">
+    <section className="sponsors-wrap">
       <div className="container">
-        <div className="stats-strip">
-          {stats.map((item, index) => {
-            const Icon = icons[index];
-            return (
-              <div className="stat-item" key={item.label}>
-                <Icon size={30} strokeWidth={1.5} />
-                <div>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              </div>
-            );
-          })}
+        <div className="sponsors-marquee">
+          <span className="sponsors-label">Sponsored by</span>
+
+          <div className="sponsors-track-viewport">
+            <div className="sponsors-track">
+              {[...sponsors, ...sponsors].map((name, i) => (
+                <span className="sponsor-item" key={`${name}-${i}`}>
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
