@@ -60,23 +60,9 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Mechnovate is a community of students, engineers, and innovators
-            passionate about building the future through robotics. We design,
-            build, and experiment with intelligent machines that turn ambitious
-            ideas into working systems.
+            Mechnovate is the annual symposium of innovation, engineering, and the spirit of building something extraordinary. Bringing together students, makers, and technology enthusiasts, Mechnovate provides a platform to learn, compete, experiment, and transform ideas into reality. From high-speed racing and autonomous systems to aerial technology and space exploration, the events are designed to challenge participants, encourage creativity, and develop practical engineering skills.
           </motion.p>
 
-          <motion.p
-            className="about-description about-description-secondary"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            From autonomous robots and embedded systems to automation and
-            competitive robotics, Mechnovate is a space where curiosity meets
-            engineering and every prototype is a step toward something bigger.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

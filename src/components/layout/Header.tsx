@@ -12,6 +12,20 @@ const navigation = [
 export function Header() {
   const pathname = usePathname();
 
+  const handleHomeClick = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    if (pathname === "/") {
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+    }
+  };
+
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -24,11 +38,11 @@ export function Header() {
     <header className="site-header">
       <div className="header-shell">
         <div className="header-inner">
-          {/* Brand */}
           <Link
             href="/"
             className="brand"
             aria-label="Mechnovate '26 Home"
+            onClick={handleHomeClick}
           >
             <span className="brand-mark" aria-hidden="true">
               <span />
@@ -39,23 +53,23 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav
-            className="desktop-nav"
-            aria-label="Main navigation"
-          >
+          <nav className="desktop-nav" aria-label="Main navigation">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={isActive(item.href) ? "active" : ""}
+                onClick={
+                  item.href === "/"
+                    ? handleHomeClick
+                    : undefined
+                }
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             type="button"
             className="mobile-menu-btn"

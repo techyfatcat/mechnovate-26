@@ -1,1845 +1,4015 @@
 /* =========================================================
+
    EVENT MODAL — HIDE SITE HEADER
+
 ========================================================= */
 
+
+
 body.event-modal-open header {
+
   opacity: 0 !important;
+
   visibility: hidden !important;
+
   pointer-events: none !important;
+
   transform: translateY(-20px) !important;
 
+
+
   transition:
+
     opacity 0.2s ease,
+
     visibility 0.2s ease,
+
     transform 0.2s ease;
+
 }
 
 
+
+
+
 /* =========================================================
+
    EVENTS SECTION
+
 ========================================================= */
 
+
+
 .events-section {
+
   position: relative;
+
+
 
   min-height: calc(100vh - 80px);
 
+
+
   padding: 150px 0 120px;
+
+
 
   overflow: hidden;
 
+
+
   background: #05080f;
+
   color: #f5f5f7;
+
 }
 
 
+
+
+
 /* =========================================================
+
    BACKGROUND GRID
+
 ========================================================= */
 
+
+
 .events-background-grid {
+
   position: absolute;
+
   inset: 0;
 
+
+
   pointer-events: none;
+
+
 
   opacity: 0.18;
 
+
+
   background-image:
+
     linear-gradient(
+
       rgba(157, 166, 184, 0.055) 1px,
+
       transparent 1px
+
     ),
+
     linear-gradient(
+
       90deg,
+
       rgba(157, 166, 184, 0.055) 1px,
+
       transparent 1px
+
     );
+
+
 
   background-size: 80px 80px;
 
+
+
   mask-image: linear-gradient(
+
     to bottom,
+
     transparent 0%,
+
     black 15%,
+
     black 85%,
+
     transparent 100%
+
   );
 
+
+
   -webkit-mask-image: linear-gradient(
+
     to bottom,
+
     transparent 0%,
+
     black 15%,
+
     black 85%,
+
     transparent 100%
+
   );
+
 }
 
 
+
+
+
 /* =========================================================
+
    BACKGROUND GLOWS
+
 ========================================================= */
 
+
+
 .events-glow {
+
   position: absolute;
 
+
+
   width: 500px;
+
   height: 500px;
+
+
 
   border-radius: 50%;
 
+
+
   pointer-events: none;
 
+
+
   filter: blur(100px);
+
 }
+
+
 
 .events-glow-left {
+
   top: 20%;
+
   left: -300px;
 
+
+
   background: rgba(255, 79, 135, 0.045);
+
 }
+
+
 
 .events-glow-right {
+
   right: -300px;
+
   bottom: 10%;
 
+
+
   background: rgba(255, 79, 135, 0.035);
+
 }
 
 
+
+
+
 /* =========================================================
+
    MAIN CONTAINER
+
 ========================================================= */
+
+
 
 .events-container {
+
   position: relative;
+
   z-index: 2;
+
 }
 
 
+
+
+
 /* =========================================================
+
    MAIN LAYOUT
+
 ========================================================= */
 
+
+
 .events-layout {
+
   display: grid;
 
+
+
   grid-template-columns:
+
     minmax(0, 0.85fr)
+
     minmax(0, 1.15fr);
+
+
 
   gap: 90px;
 
+
+
   align-items: center;
+
 }
 
 
+
+
+
 /* =========================================================
+
    INTRO
+
 ========================================================= */
+
+
 
 .events-intro {
+
   position: relative;
 
+
+
   padding: 20px 0 40px;
+
 }
 
 
+
+
+
 /* =========================================================
+
    INTRO KICKER
+
 ========================================================= */
 
+
+
 .events-kicker {
+
   display: flex;
+
   align-items: center;
+
+
 
   gap: 12px;
 
+
+
   margin-bottom: 28px;
+
+
 
   color: #ff4f87;
 
+
+
   font-family: "Oxanium", sans-serif;
+
   font-size: 12px;
+
   font-weight: 600;
 
+
+
   letter-spacing: 0.15em;
+
 }
 
+
+
 .events-kicker-line {
+
   width: 28px;
+
   height: 1px;
+
+
 
   flex-shrink: 0;
 
+
+
   background: #ff4f87;
 
+
+
   box-shadow:
+
     0 0 8px rgba(255, 79, 135, 0.8);
+
 }
 
 
+
+
+
 /* =========================================================
+
    INTRO HEADING
+
 ========================================================= */
 
+
+
 .events-intro h2 {
+
   margin: 0;
+
+
 
   max-width: 620px;
 
+
+
   font-family: "Oxanium", sans-serif;
+
   font-size: clamp(48px, 5vw, 72px);
+
   font-weight: 600;
+
+
 
   line-height: 0.98;
 
+
+
   letter-spacing: -0.045em;
+
 }
 
+
+
 .events-intro h2 span {
+
   display: block;
+
+
 
   margin-top: 8px;
 
+
+
   color: #ff4f87;
+
 }
 
 
+
+
+
 /* =========================================================
+
    INTRO DESCRIPTION
+
 ========================================================= */
 
+
+
 .events-intro p {
+
   margin: 35px 0 0;
+
+
 
   max-width: 520px;
 
+
+
   color: #a2a7b1;
 
+
+
   font-family: "Sora", sans-serif;
+
   font-size: 14px;
 
+
+
   line-height: 1.8;
+
 }
 
 
+
+
+
 /* =========================================================
+
    EVENT LIST
+
+========================================================= */
+
+
+
+.events-list {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+
+
+  width: 100%;
+
+
+
+  gap: 22px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT TICKET WRAPPER
+
+   Completely transparent — no card
+
+========================================================= */
+
+
+
+.event-ticket-wrapper {
+
+  display: flex;
+
+  justify-content: center;
+
+
+
+  width: 100%;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT TICKET
+
+   The button itself is INVISIBLE.
+
+   Only the PNG is visible.
+
+========================================================= */
+
+
+
+.event-ticket {
+
+  position: relative;
+
+
+
+  display: block;
+
+
+
+  width: min(100%, 620px);
+
+
+
+  padding: 0;
+
+  margin: 0;
+
+
+
+  border: none;
+
+  outline: none;
+
+
+
+  background: transparent;
+
+
+
+  color: inherit;
+
+
+
+  cursor: pointer;
+
+
+
+  text-align: left;
+
+
+
+  appearance: none;
+
+  -webkit-appearance: none;
+
+
+
+  box-shadow: none;
+
+
+
+  overflow: visible;
+
+
+
+  transition:
+
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT IMAGE
+
+========================================================= */
+
+
+
+.event-ticket > img {
+
+  display: block;
+
+
+
+  width: 100%;
+
+  height: auto;
+
+
+
+  margin: 0;
+
+
+
+  object-fit: contain;
+
+  object-position: center;
+
+
+
+  border: none;
+
+  border-radius: 0;
+
+
+
+  filter: none;
+
+
+
+  opacity: 1;
+
+
+
+  box-shadow: none;
+
+
+
+  transition:
+
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+
+    filter 0.45s ease;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT OVERLAY
+
+   Disabled — no box over the image
+
+========================================================= */
+
+
+
+.event-ticket-overlay {
+
+  display: none;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT HINT
+
+   Disabled for now
+
+========================================================= */
+
+
+
+.event-ticket-hint {
+
+  display: none;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT HOVER
+
+   Very subtle — image only
+
+========================================================= */
+
+
+
+.event-ticket:hover {
+
+  transform: translateY(-4px);
+
+}
+
+
+
+.event-ticket:hover > img {
+
+  transform: scale(1.015);
+
+
+
+  filter: brightness(1.05);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT FOCUS
+
+========================================================= */
+
+
+
+.event-ticket:focus-visible {
+
+  outline: 1px solid rgba(255, 79, 135, 0.8);
+
+  outline-offset: 8px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   EVENT MODAL BACKDROP
+
+========================================================= */
+
+
+
+.event-modal-backdrop {
+
+  position: fixed;
+
+  inset: 0;
+
+
+
+  z-index: 9999;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+
+  padding: 24px;
+
+
+
+  overflow: hidden;
+
+
+
+  background: rgba(2, 4, 8, 0.88);
+
+
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL PREVIOUS / NEXT
+
+========================================================= */
+
+
+
+.event-modal-nav {
+
+  position: fixed;
+
+  top: 50%;
+
+
+
+  z-index: 10001;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+
+  gap: 7px;
+
+
+
+  width: 62px;
+
+  height: 52px;
+
+
+
+  padding: 0;
+
+
+
+  border: 1px solid rgba(255, 79, 135, 0.3);
+
+
+
+  background: rgba(5, 8, 15, 0.94);
+
+
+
+  color: #ff4f87;
+
+
+
+  cursor: pointer;
+
+
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+
+
+  transform: translateY(-50%);
+
+
+
+  transition:
+
+    border-color 0.3s ease,
+
+    background 0.3s ease,
+
+    box-shadow 0.3s ease,
+
+    transform 0.3s ease;
+
+}
+
+
+
+.event-modal-nav-prev {
+
+  left: 22px;
+
+}
+
+
+
+.event-modal-nav-next {
+
+  right: 22px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   NAV ARROW
+
+========================================================= */
+
+
+
+.event-modal-nav span {
+
+  display: block;
+
+
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 19px;
+
+
+
+  line-height: 1;
+
+
+
+  transition: transform 0.3s ease;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   NAV LABEL
+
+========================================================= */
+
+
+
+.event-modal-nav small {
+
+  display: block;
+
+
+
+  color: #858c98;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+  font-size: 6px;
+
+  font-weight: 600;
+
+
+
+  letter-spacing: 0.12em;
+
+
+
+  transition: color 0.3s ease;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   NAV HOVER
+
+========================================================= */
+
+
+
+.event-modal-nav:hover {
+
+  border-color: #ff4f87;
+
+
+
+  background: rgba(255, 79, 135, 0.09);
+
+
+
+  box-shadow:
+
+    0 0 25px rgba(255, 79, 135, 0.15);
+
+}
+
+
+
+.event-modal-nav:hover small {
+
+  color: #ff4f87;
+
+}
+
+
+
+.event-modal-nav-prev:hover {
+
+  transform: translate(-3px, -50%);
+
+}
+
+
+
+.event-modal-nav-next:hover {
+
+  transform: translate(3px, -50%);
+
+}
+
+
+
+.event-modal-nav-prev:hover span {
+
+  transform: translateX(-2px);
+
+}
+
+
+
+.event-modal-nav-next:hover span {
+
+  transform: translateX(2px);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL
+
+========================================================= */
+
+
+
+.event-modal {
+
+  position: relative;
+
+
+
+  width: min(1180px, calc(100vw - 120px));
+
+
+
+  max-height: calc(100vh - 48px);
+
+
+
+  overflow-x: hidden;
+
+  overflow-y: auto;
+
+
+
+  background:
+
+    linear-gradient(
+
+      135deg,
+
+      rgba(13, 18, 28, 0.98),
+
+      rgba(5, 8, 15, 0.99)
+
+    );
+
+
+
+  border: 1px solid rgba(255, 79, 135, 0.25);
+
+
+
+  box-shadow:
+
+    0 40px 100px rgba(0, 0, 0, 0.7),
+
+    0 0 50px rgba(255, 79, 135, 0.05);
+
+
+
+  scrollbar-width: thin;
+
+  scrollbar-color: rgba(255, 79, 135, 0.35) transparent;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL BACKGROUND GRID
+
+========================================================= */
+
+
+
+.event-modal-grid {
+
+  position: absolute;
+
+  inset: 0;
+
+
+
+  pointer-events: none;
+
+
+
+  opacity: 0.18;
+
+
+
+  background-image:
+
+    linear-gradient(
+
+      rgba(157, 166, 184, 0.055) 1px,
+
+      transparent 1px
+
+    ),
+
+    linear-gradient(
+
+      90deg,
+
+      rgba(157, 166, 184, 0.055) 1px,
+
+      transparent 1px
+
+    );
+
+
+
+  background-size: 55px 55px;
+
+
+
+  mask-image: linear-gradient(
+
+    to bottom,
+
+    black,
+
+    transparent 85%
+
+  );
+
+
+
+  -webkit-mask-image: linear-gradient(
+
+    to bottom,
+
+    black,
+
+    transparent 85%
+
+  );
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL GLOW
+
+========================================================= */
+
+
+
+.event-modal-glow {
+
+  position: absolute;
+
+
+
+  top: -300px;
+
+  right: -150px;
+
+
+
+  width: 500px;
+
+  height: 500px;
+
+
+
+  border-radius: 50%;
+
+
+
+  pointer-events: none;
+
+
+
+  background: rgba(255, 79, 135, 0.06);
+
+
+
+  filter: blur(100px);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL TOP BAR
+
+========================================================= */
+
+
+
+.event-modal-top {
+
+  position: relative;
+
+  z-index: 2;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  min-height: 72px;
+
+
+
+  padding: 0 28px;
+
+
+
+  border-bottom: 1px solid rgba(157, 166, 184, 0.14);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL EVENT ID
+
+========================================================= */
+
+
+
+.event-modal-id {
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 12px;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+}
+
+
+
+.event-modal-id span {
+
+  color: #858c98;
+
+
+
+  font-size: 9px;
+
+
+
+  letter-spacing: 0.18em;
+
+}
+
+
+
+.event-modal-id strong {
+
+  color: #ff4f87;
+
+
+
+  font-size: 19px;
+
+  font-weight: 500;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL STATUS
+
+========================================================= */
+
+
+
+.event-modal-status {
+
+  position: absolute;
+
+  left: 50%;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 9px;
+
+
+
+  transform: translateX(-50%);
+
+
+
+  color: #858c98;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+  font-size: 8px;
+
+
+
+  letter-spacing: 0.16em;
+
+}
+
+
+
+.event-modal-status span {
+
+  width: 6px;
+
+  height: 6px;
+
+
+
+  flex-shrink: 0;
+
+
+
+  border-radius: 50%;
+
+
+
+  background: #ff4f87;
+
+
+
+  box-shadow:
+
+    0 0 8px rgba(255, 79, 135, 0.9);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   CLOSE BUTTON
+
+========================================================= */
+
+
+
+.event-modal-close {
+
+  position: relative;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+
+  margin-left: auto;
+
+
+
+  width: 40px;
+
+  height: 40px;
+
+
+
+  padding: 0;
+
+
+
+  border: 1px solid rgba(255, 79, 135, 0.35);
+
+
+
+  background: rgba(255, 79, 135, 0.025);
+
+
+
+  cursor: pointer;
+
+
+
+  transition:
+
+    border-color 0.3s ease,
+
+    background 0.3s ease,
+
+    transform 0.3s ease,
+
+    box-shadow 0.3s ease;
+
+}
+
+
+
+.event-modal-close:hover {
+
+  border-color: #ff4f87;
+
+
+
+  background: rgba(255, 79, 135, 0.09);
+
+
+
+  box-shadow:
+
+    0 0 20px rgba(255, 79, 135, 0.12);
+
+
+
+  transform: rotate(90deg);
+
+}
+
+
+
+.event-modal-close span {
+
+  position: absolute;
+
+
+
+  top: 50%;
+
+  left: 50%;
+
+
+
+  width: 17px;
+
+  height: 1px;
+
+
+
+  background: #ff4f87;
+
+
+
+  box-shadow:
+
+    0 0 6px rgba(255, 79, 135, 0.5);
+
+}
+
+
+
+.event-modal-close span:first-child {
+
+  transform:
+
+    translate(-50%, -50%)
+
+    rotate(45deg);
+
+}
+
+
+
+.event-modal-close span:last-child {
+
+  transform:
+
+    translate(-50%, -50%)
+
+    rotate(-45deg);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL MAIN CONTENT
+
+========================================================= */
+
+
+
+.event-modal-content {
+
+  position: relative;
+
+  z-index: 2;
+
+
+
+  display: grid;
+
+
+
+  grid-template-columns:
+
+    minmax(0, 1fr)
+
+    minmax(330px, 0.7fr);
+
+
+
+  gap: 65px;
+
+
+
+  padding: 50px 58px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL INFORMATION
+
+========================================================= */
+
+
+
+.event-modal-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+
+
+  min-width: 0;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL CATEGORY
+
+========================================================= */
+
+
+
+.event-modal-category {
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 10px;
+
+
+
+  margin-bottom: 18px;
+
+
+
+  color: #ff4f87;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+
+
+  letter-spacing: 0.18em;
+
+}
+
+
+
+.event-modal-category span {
+
+  width: 22px;
+
+  height: 1px;
+
+
+
+  flex-shrink: 0;
+
+
+
+  background: #ff4f87;
+
+
+
+  box-shadow:
+
+    0 0 8px rgba(255, 79, 135, 0.7);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL TITLE
+
+========================================================= */
+
+
+
+.event-modal-info h2 {
+
+  margin: 0;
+
+
+
+  color: #f5f5f7;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+
+
+  font-size: clamp(58px, 7vw, 94px);
+
+
+
+  font-weight: 500;
+
+
+
+  line-height: 0.9;
+
+
+
+  letter-spacing: -0.055em;
+
+
+
+  overflow-wrap: anywhere;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL SUBTITLE
+
+========================================================= */
+
+
+
+.event-modal-info h3 {
+
+  margin: 18px 0 0;
+
+
+
+  color: #a2a7b1;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+
+
+  line-height: 1.4;
+
+
+
+  letter-spacing: 0.12em;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL DIVIDER
+
+========================================================= */
+
+
+
+.event-modal-divider {
+
+  width: 100%;
+
+  height: 1px;
+
+
+
+  margin: 28px 0;
+
+
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      rgba(255, 79, 135, 0.7),
+
+      rgba(157, 166, 184, 0.1)
+
+    );
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL DESCRIPTION
+
+========================================================= */
+
+
+
+.event-modal-info > p {
+
+  max-width: 650px;
+
+
+
+  margin: 0;
+
+
+
+  color: #a2a7b1;
+
+
+
+  font-family: "Sora", sans-serif;
+
+
+
+  font-size: 13px;
+
+
+
+  line-height: 1.8;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL ACTIONS
+
+========================================================= */
+
+
+
+.event-modal-actions {
+
+  display: grid;
+
+
+
+  grid-template-columns:
+
+    repeat(3, minmax(0, 1fr));
+
+
+
+  gap: 10px;
+
+
+
+  margin-top: 32px;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL BUTTON
+
+========================================================= */
+
+
+
+.event-modal-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+
+  gap: 12px;
+
+
+
+  min-width: 0;
+
+  min-height: 44px;
+
+
+
+  padding: 13px 14px;
+
+
+
+  border: 1px solid rgba(157, 166, 184, 0.2);
+
+
+
+  background: rgba(157, 166, 184, 0.025);
+
+
+
+  color: #a2a7b1;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+
+
+  letter-spacing: 0.1em;
+
+
+
+  text-decoration: none;
+
+
+
+  cursor: pointer;
+
+
+
+  transition:
+
+    border-color 0.3s ease,
+
+    background 0.3s ease,
+
+    color 0.3s ease,
+
+    transform 0.3s ease;
+
+}
+
+
+
+.event-modal-button:hover {
+
+  border-color: rgba(255, 79, 135, 0.55);
+
+
+
+  background: rgba(255, 79, 135, 0.06);
+
+
+
+  color: #f5f5f7;
+
+
+
+  transform: translateY(-2px);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   PRIMARY MODAL BUTTON
+
+========================================================= */
+
+
+
+.event-modal-button-primary {
+
+  border-color: rgba(255, 79, 135, 0.55);
+
+
+
+  background: rgba(255, 79, 135, 0.08);
+
+
+
+  color: #ff4f87;
+
+}
+
+
+
+.event-modal-button-primary:hover {
+
+  border-color: #ff4f87;
+
+
+
+  background: rgba(255, 79, 135, 0.14);
+
+
+
+  color: #ff4f87;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   POSTER
+
+========================================================= */
+
+
+
+.event-modal-poster {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+
+
+  min-width: 0;
+
+}
+
+
+
+.poster-frame {
+
+  position: relative;
+
+
+
+  width: 100%;
+
+
+
+  overflow: hidden;
+
+
+
+  border: 1px solid rgba(157, 166, 184, 0.2);
+
+
+
+  background: #080c14;
+
+
+
+  box-shadow:
+
+    inset 0 0 40px rgba(0, 0, 0, 0.5),
+
+    0 0 30px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   POSTER IMAGE
+
+========================================================= */
+
+
+
+.poster-frame img {
+
+  display: block;
+
+
+
+  width: 100%;
+
+  max-height: 500px;
+
+
+
+  object-fit: contain;
+
+
+
+  filter:
+
+    contrast(1.05)
+
+    brightness(0.88);
+
+
+
+  transition:
+
+    transform 0.8s ease,
+
+    filter 0.5s ease;
+
+}
+
+
+
+.poster-frame:hover img {
+
+  transform: scale(1.015);
+
+
+
+  filter:
+
+    contrast(1.08)
+
+    brightness(0.95);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   POSTER CORNERS
+
+========================================================= */
+
+
+
+.poster-corner {
+
+  position: absolute;
+
+
+
+  z-index: 3;
+
+
+
+  width: 22px;
+
+  height: 22px;
+
+
+
+  pointer-events: none;
+
+}
+
+
+
+.poster-corner-tl {
+
+  top: -1px;
+
+  left: -1px;
+
+
+
+  border-top: 2px solid #ff4f87;
+
+  border-left: 2px solid #ff4f87;
+
+}
+
+
+
+.poster-corner-tr {
+
+  top: -1px;
+
+  right: -1px;
+
+
+
+  border-top: 2px solid #ff4f87;
+
+  border-right: 2px solid #ff4f87;
+
+}
+
+
+
+.poster-corner-bl {
+
+  bottom: -1px;
+
+  left: -1px;
+
+
+
+  border-bottom: 2px solid #ff4f87;
+
+  border-left: 2px solid #ff4f87;
+
+}
+
+
+
+.poster-corner-br {
+
+  right: -1px;
+
+  bottom: -1px;
+
+
+
+  border-right: 2px solid #ff4f87;
+
+  border-bottom: 2px solid #ff4f87;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   POSTER STATUS
+
+========================================================= */
+
+
+
+.poster-status {
+
+  position: absolute;
+
+
+
+  top: 14px;
+
+  left: 14px;
+
+
+
+  z-index: 4;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 8px;
+
+
+
+  padding: 6px 9px;
+
+
+
+  background: rgba(5, 8, 15, 0.72);
+
+
+
+  color: #a2a7b1;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+
+
+  font-size: 7px;
+
+
+
+  letter-spacing: 0.14em;
+
+}
+
+
+
+.poster-status span {
+
+  width: 5px;
+
+  height: 5px;
+
+
+
+  flex-shrink: 0;
+
+
+
+  border-radius: 50%;
+
+
+
+  background: #ff4f87;
+
+
+
+  box-shadow:
+
+    0 0 8px rgba(255, 79, 135, 0.8);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   POSTER SCAN LINE
+
+========================================================= */
+
+
+
+.poster-scan {
+
+  position: absolute;
+
+
+
+  left: 0;
+
+
+
+  z-index: 3;
+
+
+
+  width: 100%;
+
+  height: 1px;
+
+
+
+  pointer-events: none;
+
+
+
+  background: rgba(255, 79, 135, 0.45);
+
+
+
+  box-shadow:
+
+    0 0 12px rgba(255, 79, 135, 0.45);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   POSTER CODE
+
+========================================================= */
+
+
+
+.poster-code {
+
+  display: flex;
+
+  justify-content: space-between;
+
+
+
+  gap: 20px;
+
+
+
+  padding-top: 12px;
+
+
+
+  color: #858c98;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+
+
+  font-size: 7px;
+
+
+
+  letter-spacing: 0.14em;
+
+}
+
+
+
+.poster-code span:first-child {
+
+  color: #ff4f87;
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MODAL FOOTER
+
+========================================================= */
+
+
+
+.event-modal-footer {
+
+  position: relative;
+
+  z-index: 2;
+
+
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  gap: 18px;
+
+
+
+  height: 44px;
+
+
+
+  padding: 0 28px;
+
+
+
+  border-top: 1px solid rgba(157, 166, 184, 0.12);
+
+
+
+  color: #666d78;
+
+
+
+  font-family: "Oxanium", sans-serif;
+
+
+
+  font-size: 7px;
+
+
+
+  letter-spacing: 0.15em;
+
+}
+
+
+
+.event-modal-footer div {
+
+  flex: 1;
+
+
+
+  height: 1px;
+
+
+
+  background: rgba(157, 166, 184, 0.12);
+
+}
+
+
+
+
+
+/* =========================================================
+
+   LARGE TABLET
+
+========================================================= */
+
+
+
+@media (max-width: 1100px) {
+
+  .events-layout {
+
+    grid-template-columns:
+
+      minmax(0, 0.8fr)
+
+      minmax(0, 1.2fr);
+
+
+
+    gap: 55px;
+
+  }
+
+
+
+  .event-ticket {
+
+    width: min(100%, 560px);
+
+  }
+
+
+
+  .event-modal-content {
+
+    gap: 40px;
+
+
+
+    padding: 45px;
+
+  }
+
+
+
+  .event-modal-info h2 {
+
+    font-size: clamp(54px, 7vw, 82px);
+
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   TABLET
+
+========================================================= */
+
+
+
+@media (max-width: 900px) {
+
+  .events-section {
+
+    padding: 120px 0 100px;
+
+  }
+
+
+
+  .events-layout {
+
+    grid-template-columns: 1fr;
+
+
+
+    gap: 60px;
+
+  }
+
+
+
+  .events-intro {
+
+    padding-bottom: 0;
+
+  }
+
+
+
+  .events-intro h2 {
+
+    max-width: 700px;
+
+
+
+    font-size: clamp(48px, 9vw, 68px);
+
+  }
+
+
+
+  .events-intro p {
+
+    max-width: 600px;
+
+  }
+
+
+
+
+
+  /* EVENT IMAGES */
+
+
+
+  .events-list {
+
+    gap: 20px;
+
+  }
+
+
+
+  .event-ticket {
+
+    width: min(100%, 600px);
+
+  }
+
+
+
+
+
+  /* MODAL */
+
+
+
+  .event-modal-content {
+
+    grid-template-columns:
+
+      minmax(0, 1fr)
+
+      minmax(270px, 0.72fr);
+
+
+
+    gap: 30px;
+
+
+
+    padding: 38px;
+
+  }
+
+
+
+  .event-modal-actions {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+  .event-modal-nav-prev {
+
+    left: 12px;
+
+  }
+
+
+
+  .event-modal-nav-next {
+
+    right: 12px;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 700px) {
+
+  .events-section {
+
+    min-height: auto;
+
+
+
+    padding: 105px 0 80px;
+
+  }
+
+
+
+  .events-layout {
+
+    gap: 45px;
+
+  }
+
+
+
+
+
+  /* INTRO */
+
+
+
+  .events-kicker {
+
+    margin-bottom: 20px;
+
+
+
+    font-size: 10px;
+
+  }
+
+
+
+  .events-kicker-line {
+
+    width: 22px;
+
+  }
+
+
+
+  .events-intro h2 {
+
+    font-size: clamp(40px, 11vw, 58px);
+
+
+
+    line-height: 1;
+
+  }
+
+
+
+  .events-intro h2 span {
+
+    margin-top: 5px;
+
+  }
+
+
+
+  .events-intro p {
+
+    margin-top: 22px;
+
+
+
+    font-size: 12px;
+
+
+
+    line-height: 1.7;
+
+  }
+
+
+
+  .events-desktop-break {
+
+    display: none;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     EVENT IMAGES
+
+  ------------------------------------------------------- */
+
+
+
+  .events-list {
+
+    gap: 18px;
+
+  }
+
+
+
+  .event-ticket {
+
+    width: min(92%, 520px);
+
+
+
+    transform: none;
+
+  }
+
+
+
+  .event-ticket > img {
+
+    width: 100%;
+
+
+
+    filter: none;
+
+
+
+    opacity: 1;
+
+  }
+
+
+
+  .event-ticket:hover {
+
+    transform: none;
+
+  }
+
+
+
+  .event-ticket:hover > img {
+
+    transform: none;
+
+
+
+    filter: none;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL BACKDROP
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-backdrop {
+
+    align-items: stretch;
+
+    justify-content: flex-start;
+
+
+
+    padding:
+
+      10px
+
+      10px
+
+      calc(62px + env(safe-area-inset-bottom));
+
+
+
+    overflow: hidden;
+
+
+
+    overscroll-behavior: none;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal {
+
+    width: 100%;
+
+    max-width: none;
+
+
+
+    height: 100%;
+
+    max-height: none;
+
+
+
+    overflow-x: hidden;
+
+    overflow-y: auto;
+
+
+
+    box-sizing: border-box;
+
+
+
+    -webkit-overflow-scrolling: touch;
+
+
+
+    overscroll-behavior: contain;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MOBILE MODAL NAVIGATION
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-nav {
+
+    position: fixed;
+
+
+
+    top: auto;
+
+    bottom: max(12px, env(safe-area-inset-bottom));
+
+
+
+    z-index: 10002;
+
+
+
+    width: 42px;
+
+    height: 34px;
+
+
+
+    gap: 5px;
+
+
+
+    transform: none;
+
+  }
+
+
+
+  .event-modal-nav-prev {
+
+    left: calc(50% - 52px);
+
+  }
+
+
+
+  .event-modal-nav-next {
+
+    right: calc(50% - 52px);
+
+  }
+
+
+
+  .event-modal-nav span {
+
+    font-size: 14px;
+
+  }
+
+
+
+  .event-modal-nav small {
+
+    font-size: 5px;
+
+  }
+
+
+
+  .event-modal-nav:hover,
+
+  .event-modal-nav-prev:hover,
+
+  .event-modal-nav-next:hover {
+
+    transform: none;
+
+  }
+
+
+
+  .event-modal-nav-prev:hover span,
+
+  .event-modal-nav-next:hover span {
+
+    transform: none;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL TOP
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-top {
+
+    min-height: 58px;
+
+
+
+    padding: 0 16px;
+
+  }
+
+
+
+  .event-modal-status {
+
+    display: none;
+
+  }
+
+
+
+  .event-modal-id {
+
+    gap: 9px;
+
+  }
+
+
+
+  .event-modal-id span {
+
+    font-size: 7px;
+
+  }
+
+
+
+  .event-modal-id strong {
+
+    font-size: 16px;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL CLOSE
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-close {
+
+    width: 34px;
+
+    height: 34px;
+
+  }
+
+
+
+  .event-modal-close span {
+
+    width: 15px;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL CONTENT
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-content {
+
+    grid-template-columns: 1fr;
+
+
+
+    gap: 32px;
+
+
+
+    padding: 32px 20px 28px;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL INFO
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-category {
+
+    margin-bottom: 16px;
+
+
+
+    font-size: 8px;
+
+  }
+
+
+
+  .event-modal-info h2 {
+
+    font-size: clamp(52px, 17vw, 76px);
+
+
+
+    line-height: 0.9;
+
+  }
+
+
+
+  .event-modal-info h3 {
+
+    margin-top: 14px;
+
+
+
+    font-size: 10px;
+
+
+
+    line-height: 1.5;
+
+  }
+
+
+
+  .event-modal-divider {
+
+    margin: 22px 0;
+
+  }
+
+
+
+  .event-modal-info > p {
+
+    font-size: 11px;
+
+
+
+    line-height: 1.75;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL ACTIONS
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-actions {
+
+    grid-template-columns: 1fr;
+
+
+
+    gap: 8px;
+
+
+
+    margin-top: 25px;
+
+  }
+
+
+
+  .event-modal-button {
+
+    width: 100%;
+
+
+
+    padding: 12px 14px;
+
+
+
+    font-size: 8px;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     POSTER
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-poster {
+
+    width: 100%;
+
+  }
+
+
+
+  .poster-frame img {
+
+    width: 100%;
+
+    max-height: none;
+
+
+
+    object-fit: contain;
+
+  }
+
+
+
+  .poster-status {
+
+    top: 10px;
+
+    left: 10px;
+
+
+
+    padding: 5px 7px;
+
+
+
+    font-size: 6px;
+
+  }
+
+
+
+  .poster-code {
+
+    padding-top: 9px;
+
+
+
+    font-size: 5px;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL FOOTER
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-footer {
+
+    height: 40px;
+
+
+
+    padding: 0 16px;
+
+
+
+    font-size: 6px;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   SMALL MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 430px) {
+
+  .events-section {
+
+    padding-top: 95px;
+
+    padding-bottom: 70px;
+
+  }
+
+
+
+  .events-layout {
+
+    gap: 38px;
+
+  }
+
+
+
+  .events-intro h2 {
+
+    font-size: 39px;
+
+  }
+
+
+
+  .events-intro p {
+
+    font-size: 11px;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     EVENT IMAGES
+
+  ------------------------------------------------------- */
+
+
+
+  .events-list {
+
+    gap: 15px;
+
+  }
+
+
+
+  .event-ticket {
+
+    width: 94%;
+
+  }
+
+
+
+
+
+  /* -------------------------------------------------------
+
+     MODAL
+
+  ------------------------------------------------------- */
+
+
+
+  .event-modal-backdrop {
+
+    padding:
+
+      8px
+
+      8px
+
+      calc(58px + env(safe-area-inset-bottom));
+
+  }
+
+
+
+  .event-modal-content {
+
+    padding: 26px 16px 24px;
+
+
+
+    gap: 26px;
+
+  }
+
+
+
+  .event-modal-info h2 {
+
+    font-size: 50px;
+
+  }
+
+
+
+  .event-modal-info h3 {
+
+    font-size: 9px;
+
+  }
+
+
+
+  .event-modal-divider {
+
+    margin: 20px 0;
+
+  }
+
+
+
+  .event-modal-info > p {
+
+    font-size: 10px;
+
+
+
+    line-height: 1.7;
+
+  }
+
+
+
+  .event-modal-close {
+
+    width: 32px;
+
+    height: 32px;
+
+  }
+
+
+
+  .event-modal-footer {
+
+    height: 38px;
+
+
+
+    padding: 0 12px;
+
+
+
+    font-size: 5px;
+
+  }
+
+
+
+
+
+  /* MOBILE NAV */
+
+
+
+  .event-modal-nav {
+
+    width: 40px;
+
+    height: 32px;
+
+  }
+
+
+
+  .event-modal-nav-prev {
+
+    left: calc(50% - 48px);
+
+  }
+
+
+
+  .event-modal-nav-next {
+
+    right: calc(50% - 48px);
+
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   VERY SMALL MOBILE
+
+========================================================= */
+
+
+
+@media (max-width: 360px) {
+
+  .events-section {
+
+    padding-top: 88px;
+
+  }
+
+
+
+  .events-intro h2 {
+
+    font-size: 35px;
+
+  }
+
+
+
+  .events-intro p {
+
+    font-size: 10px;
+
+  }
+
+
+
+
+
+  /* EVENT IMAGES */
+
+
+
+  .event-ticket {
+
+    width: 96%;
+
+  }
+
+
+
+
+
+  /* MODAL */
+
+
+
+  .event-modal-content {
+
+    padding: 23px 13px 22px;
+
+
+
+    gap: 23px;
+
+  }
+
+
+
+  .event-modal-info h2 {
+
+    font-size: 44px;
+
+  }
+
+
+
+  .event-modal-info h3 {
+
+    font-size: 8px;
+
+  }
+
+
+
+  .event-modal-info > p {
+
+    font-size: 9px;
+
+
+
+    line-height: 1.65;
+
+  }
+
+
+
+  .event-modal-button {
+
+    padding: 11px 12px;
+
+
+
+    font-size: 7px;
+
+  }
+
+
+
+  .poster-status {
+
+    font-size: 5px;
+
+  }
+
+
+
+  .poster-code {
+
+    font-size: 4.5px;
+
+  }
+
+
+
+  .event-modal-footer {
+
+    font-size: 4.5px;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   REDUCED MOTION
+
+========================================================= */
+
+
+
+
+/* =========================================================
+   EVENT CAROUSEL — SINGLE STACKED TICKET
 ========================================================= */
 
 .events-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100%;
-
-  gap: 22px;
-}
-
-
-/* =========================================================
-   EVENT TICKET WRAPPER
-   Completely transparent — no card
-========================================================= */
-
-.event-ticket-wrapper {
-  display: flex;
   justify-content: center;
-
+  align-items: center;
   width: 100%;
+  min-width: 0;
+  gap: 0;
 }
 
+.event-carousel {
+  width: 100%;
+  max-width: 650px;
+}
 
-/* =========================================================
-   EVENT TICKET
-   The button itself is INVISIBLE.
-   Only the PNG is visible.
-========================================================= */
+.event-ticket-stage {
+  position: relative;
+  width: min(100%, 620px);
+  aspect-ratio: 1.62 / 1;
+  margin: 0 auto;
+  perspective: 1400px;
+}
+
+.event-ticket-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+}
 
 .event-ticket {
   position: relative;
-
   display: block;
-
-  width: min(100%, 620px);
-
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
-
-  border: none;
-  outline: none;
-
+  border: 0;
+  outline: 0;
   background: transparent;
-
   color: inherit;
-
   cursor: pointer;
-
   text-align: left;
-
   appearance: none;
   -webkit-appearance: none;
-
   box-shadow: none;
-
   overflow: visible;
-
-  transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateZ(0);
 }
-
-
-/* =========================================================
-   EVENT IMAGE
-========================================================= */
 
 .event-ticket > img {
   display: block;
-
   width: 100%;
-  height: auto;
-
+  height: 100%;
   margin: 0;
-
   object-fit: contain;
   object-position: center;
-
-  border: none;
+  border: 0;
   border-radius: 0;
-
   filter: none;
-
   opacity: 1;
-
   box-shadow: none;
-
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.45s ease;
 }
 
-
-/* =========================================================
-   EVENT OVERLAY
-   Disabled — no box over the image
-========================================================= */
-
 .event-ticket-overlay {
-  display: none;
+  position: absolute;
+  inset: 8%;
+  display: block;
+  pointer-events: none;
+  opacity: 0;
+  border: 1px solid rgba(255, 79, 135, 0.4);
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255, 79, 135, 0.08) 50%,
+    transparent 65%
+  );
+  transition: opacity 0.35s ease;
 }
-
-
-/* =========================================================
-   EVENT HINT
-   Disabled for now
-========================================================= */
 
 .event-ticket-hint {
-  display: none;
-}
-
-
-/* =========================================================
-   EVENT HOVER
-   Very subtle — image only
-========================================================= */
-
-.event-ticket:hover {
-  transform: translateY(-4px);
+  position: absolute;
+  right: 9%;
+  bottom: 10%;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 79, 135, 0.45);
+  background: rgba(5, 8, 15, 0.78);
+  color: #ff4f87;
+  font-family: "Oxanium", sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  opacity: 0;
+  transform: translateY(7px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .event-ticket:hover > img {
-  transform: scale(1.015);
-
-  filter: brightness(1.05);
+  transform: scale(1.018);
+  filter: brightness(1.04);
 }
 
+.event-ticket:hover .event-ticket-overlay,
+.event-ticket:focus-visible .event-ticket-overlay {
+  opacity: 1;
+}
 
-/* =========================================================
-   EVENT FOCUS
-========================================================= */
+.event-ticket:hover .event-ticket-hint,
+.event-ticket:focus-visible .event-ticket-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .event-ticket:focus-visible {
-  outline: 1px solid rgba(255, 79, 135, 0.8);
-  outline-offset: 8px;
+  outline: 1px solid rgba(255, 79, 135, 0.9);
+  outline-offset: 10px;
 }
 
-
-/* =========================================================
-   EVENT MODAL BACKDROP
-========================================================= */
-
-.event-modal-backdrop {
-  position: fixed;
-  inset: 0;
-
-  z-index: 9999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 24px;
-
-  overflow: hidden;
-
-  background: rgba(2, 4, 8, 0.88);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.event-carousel-controls {
+  width: min(100%, 620px);
+  margin: 25px auto 0;
 }
 
-
-/* =========================================================
-   MODAL PREVIOUS / NEXT
-========================================================= */
-
-.event-modal-nav {
-  position: fixed;
-  top: 50%;
-
-  z-index: 10001;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 7px;
-
-  width: 62px;
-  height: 52px;
-
-  padding: 0;
-
-  border: 1px solid rgba(255, 79, 135, 0.3);
-
-  background: rgba(5, 8, 15, 0.94);
-
-  color: #ff4f87;
-
-  cursor: pointer;
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  transform: translateY(-50%);
-
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-.event-modal-nav-prev {
-  left: 22px;
-}
-
-.event-modal-nav-next {
-  right: 22px;
-}
-
-
-/* =========================================================
-   NAV ARROW
-========================================================= */
-
-.event-modal-nav span {
-  display: block;
-
-  font-family: "Sora", sans-serif;
-  font-size: 19px;
-
-  line-height: 1;
-
-  transition: transform 0.3s ease;
-}
-
-
-/* =========================================================
-   NAV LABEL
-========================================================= */
-
-.event-modal-nav small {
-  display: block;
-
-  color: #858c98;
-
-  font-family: "Oxanium", sans-serif;
-  font-size: 6px;
-  font-weight: 600;
-
-  letter-spacing: 0.12em;
-
-  transition: color 0.3s ease;
-}
-
-
-/* =========================================================
-   NAV HOVER
-========================================================= */
-
-.event-modal-nav:hover {
-  border-color: #ff4f87;
-
-  background: rgba(255, 79, 135, 0.09);
-
-  box-shadow:
-    0 0 25px rgba(255, 79, 135, 0.15);
-}
-
-.event-modal-nav:hover small {
-  color: #ff4f87;
-}
-
-.event-modal-nav-prev:hover {
-  transform: translate(-3px, -50%);
-}
-
-.event-modal-nav-next:hover {
-  transform: translate(3px, -50%);
-}
-
-.event-modal-nav-prev:hover span {
-  transform: translateX(-2px);
-}
-
-.event-modal-nav-next:hover span {
-  transform: translateX(2px);
-}
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-.event-modal {
+.event-carousel-progress {
   position: relative;
-
-  width: min(1180px, calc(100vw - 120px));
-
-  max-height: calc(100vh - 48px);
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(13, 18, 28, 0.98),
-      rgba(5, 8, 15, 0.99)
-    );
-
-  border: 1px solid rgba(255, 79, 135, 0.25);
-
-  box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.7),
-    0 0 50px rgba(255, 79, 135, 0.05);
-
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 79, 135, 0.35) transparent;
-}
-
-
-/* =========================================================
-   MODAL BACKGROUND GRID
-========================================================= */
-
-.event-modal-grid {
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: 0.18;
-
-  background-image:
-    linear-gradient(
-      rgba(157, 166, 184, 0.055) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(157, 166, 184, 0.055) 1px,
-      transparent 1px
-    );
-
-  background-size: 55px 55px;
-
-  mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 85%
-  );
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 85%
-  );
-}
-
-
-/* =========================================================
-   MODAL GLOW
-========================================================= */
-
-.event-modal-glow {
-  position: absolute;
-
-  top: -300px;
-  right: -150px;
-
-  width: 500px;
-  height: 500px;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  background: rgba(255, 79, 135, 0.06);
-
-  filter: blur(100px);
-}
-
-
-/* =========================================================
-   MODAL TOP BAR
-========================================================= */
-
-.event-modal-top {
-  position: relative;
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-
-  min-height: 72px;
-
-  padding: 0 28px;
-
-  border-bottom: 1px solid rgba(157, 166, 184, 0.14);
-}
-
-
-/* =========================================================
-   MODAL EVENT ID
-========================================================= */
-
-.event-modal-id {
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
-
-  font-family: "Oxanium", sans-serif;
-}
-
-.event-modal-id span {
-  color: #858c98;
-
-  font-size: 9px;
-
-  letter-spacing: 0.18em;
-}
-
-.event-modal-id strong {
-  color: #ff4f87;
-
-  font-size: 19px;
-  font-weight: 500;
-}
-
-
-/* =========================================================
-   MODAL STATUS
-========================================================= */
-
-.event-modal-status {
-  position: absolute;
-  left: 50%;
-
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  transform: translateX(-50%);
-
-  color: #858c98;
-
-  font-family: "Oxanium", sans-serif;
-  font-size: 8px;
-
-  letter-spacing: 0.16em;
-}
-
-.event-modal-status span {
-  width: 6px;
-  height: 6px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  background: #ff4f87;
-
-  box-shadow:
-    0 0 8px rgba(255, 79, 135, 0.9);
-}
-
-
-/* =========================================================
-   CLOSE BUTTON
-========================================================= */
-
-.event-modal-close {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-left: auto;
-
-  width: 40px;
-  height: 40px;
-
-  padding: 0;
-
-  border: 1px solid rgba(255, 79, 135, 0.35);
-
-  background: rgba(255, 79, 135, 0.025);
-
-  cursor: pointer;
-
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.event-modal-close:hover {
-  border-color: #ff4f87;
-
-  background: rgba(255, 79, 135, 0.09);
-
-  box-shadow:
-    0 0 20px rgba(255, 79, 135, 0.12);
-
-  transform: rotate(90deg);
-}
-
-.event-modal-close span {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 17px;
-  height: 1px;
-
-  background: #ff4f87;
-
-  box-shadow:
-    0 0 6px rgba(255, 79, 135, 0.5);
-}
-
-.event-modal-close span:first-child {
-  transform:
-    translate(-50%, -50%)
-    rotate(45deg);
-}
-
-.event-modal-close span:last-child {
-  transform:
-    translate(-50%, -50%)
-    rotate(-45deg);
-}
-
-
-/* =========================================================
-   MODAL MAIN CONTENT
-========================================================= */
-
-.event-modal-content {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(330px, 0.7fr);
-
-  gap: 65px;
-
-  padding: 50px 58px;
-}
-
-
-/* =========================================================
-   MODAL INFORMATION
-========================================================= */
-
-.event-modal-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  min-width: 0;
-}
-
-
-/* =========================================================
-   MODAL CATEGORY
-========================================================= */
-
-.event-modal-category {
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-
-  margin-bottom: 18px;
-
-  color: #ff4f87;
-
-  font-family: "Oxanium", sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-
-  letter-spacing: 0.18em;
-}
-
-.event-modal-category span {
-  width: 22px;
-  height: 1px;
-
-  flex-shrink: 0;
-
-  background: #ff4f87;
-
-  box-shadow:
-    0 0 8px rgba(255, 79, 135, 0.7);
-}
-
-
-/* =========================================================
-   MODAL TITLE
-========================================================= */
-
-.event-modal-info h2 {
-  margin: 0;
-
-  color: #f5f5f7;
-
-  font-family: "Oxanium", sans-serif;
-
-  font-size: clamp(58px, 7vw, 94px);
-
-  font-weight: 500;
-
-  line-height: 0.9;
-
-  letter-spacing: -0.055em;
-
-  overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   MODAL SUBTITLE
-========================================================= */
-
-.event-modal-info h3 {
-  margin: 18px 0 0;
-
-  color: #a2a7b1;
-
-  font-family: "Oxanium", sans-serif;
-
-  font-size: 15px;
-  font-weight: 400;
-
-  line-height: 1.4;
-
-  letter-spacing: 0.12em;
-}
-
-
-/* =========================================================
-   MODAL DIVIDER
-========================================================= */
-
-.event-modal-divider {
   width: 100%;
   height: 1px;
-
-  margin: 28px 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 79, 135, 0.7),
-      rgba(157, 166, 184, 0.1)
-    );
+  margin-bottom: 16px;
+  overflow: hidden;
+  background: rgba(157, 166, 184, 0.16);
 }
 
-
-/* =========================================================
-   MODAL DESCRIPTION
-========================================================= */
-
-.event-modal-info > p {
-  max-width: 650px;
-
-  margin: 0;
-
-  color: #a2a7b1;
-
-  font-family: "Sora", sans-serif;
-
-  font-size: 13px;
-
-  line-height: 1.8;
+.event-carousel-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  transform-origin: left center;
+  background: #ff4f87;
+  box-shadow: 0 0 10px rgba(255, 79, 135, 0.55);
 }
 
-
-/* =========================================================
-   MODAL ACTIONS
-========================================================= */
-
-.event-modal-actions {
+.event-carousel-dots {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 10px;
-
-  margin-top: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
 }
 
-
-/* =========================================================
-   MODAL BUTTON
-========================================================= */
-
-.event-modal-button {
+.event-carousel-control {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  gap: 12px;
-
+  gap: 9px;
   min-width: 0;
-  min-height: 44px;
-
-  padding: 13px 14px;
-
-  border: 1px solid rgba(157, 166, 184, 0.2);
-
-  background: rgba(157, 166, 184, 0.025);
-
-  color: #a2a7b1;
-
+  min-height: 45px;
+  padding: 9px 10px;
+  border: 1px solid rgba(157, 166, 184, 0.14);
+  border-top-color: rgba(157, 166, 184, 0.2);
+  background: rgba(8, 12, 20, 0.35);
+  color: #858c98;
   font-family: "Oxanium", sans-serif;
-
-  font-size: 8px;
-  font-weight: 500;
-
-  letter-spacing: 0.1em;
-
-  text-decoration: none;
-
   cursor: pointer;
-
+  text-align: left;
   transition:
+    color 0.3s ease,
     border-color 0.3s ease,
     background 0.3s ease,
-    color 0.3s ease,
     transform 0.3s ease;
 }
 
-.event-modal-button:hover {
-  border-color: rgba(255, 79, 135, 0.55);
+.event-carousel-control::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ff4f87;
+  transition: width 0.35s ease;
+}
 
-  background: rgba(255, 79, 135, 0.06);
+.event-carousel-control-number {
+  flex: 0 0 auto;
+  color: #5f6672;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
 
+.event-carousel-control-name {
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-carousel-control:hover {
   color: #f5f5f7;
-
+  border-color: rgba(255, 79, 135, 0.32);
+  background: rgba(255, 79, 135, 0.035);
   transform: translateY(-2px);
 }
 
+.event-carousel-control.is-active {
+  color: #f5f5f7;
+  border-color: rgba(255, 79, 135, 0.42);
+  background: rgba(255, 79, 135, 0.055);
+}
 
-/* =========================================================
-   PRIMARY MODAL BUTTON
-========================================================= */
+.event-carousel-control.is-active::before {
+  width: 100%;
+}
 
-.event-modal-button-primary {
-  border-color: rgba(255, 79, 135, 0.55);
-
-  background: rgba(255, 79, 135, 0.08);
-
+.event-carousel-control.is-active .event-carousel-control-number {
   color: #ff4f87;
 }
 
-.event-modal-button-primary:hover {
-  border-color: #ff4f87;
-
-  background: rgba(255, 79, 135, 0.14);
-
-  color: #ff4f87;
+.event-carousel-control:focus-visible {
+  outline: 1px solid rgba(255, 79, 135, 0.8);
+  outline-offset: 3px;
 }
-
-
-/* =========================================================
-   POSTER
-========================================================= */
-
-.event-modal-poster {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  min-width: 0;
-}
-
-.poster-frame {
-  position: relative;
-
-  width: 100%;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(157, 166, 184, 0.2);
-
-  background: #080c14;
-
-  box-shadow:
-    inset 0 0 40px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-
-/* =========================================================
-   POSTER IMAGE
-========================================================= */
-
-.poster-frame img {
-  display: block;
-
-  width: 100%;
-  max-height: 500px;
-
-  object-fit: contain;
-
-  filter:
-    contrast(1.05)
-    brightness(0.88);
-
-  transition:
-    transform 0.8s ease,
-    filter 0.5s ease;
-}
-
-.poster-frame:hover img {
-  transform: scale(1.015);
-
-  filter:
-    contrast(1.08)
-    brightness(0.95);
-}
-
-
-/* =========================================================
-   POSTER CORNERS
-========================================================= */
-
-.poster-corner {
-  position: absolute;
-
-  z-index: 3;
-
-  width: 22px;
-  height: 22px;
-
-  pointer-events: none;
-}
-
-.poster-corner-tl {
-  top: -1px;
-  left: -1px;
-
-  border-top: 2px solid #ff4f87;
-  border-left: 2px solid #ff4f87;
-}
-
-.poster-corner-tr {
-  top: -1px;
-  right: -1px;
-
-  border-top: 2px solid #ff4f87;
-  border-right: 2px solid #ff4f87;
-}
-
-.poster-corner-bl {
-  bottom: -1px;
-  left: -1px;
-
-  border-bottom: 2px solid #ff4f87;
-  border-left: 2px solid #ff4f87;
-}
-
-.poster-corner-br {
-  right: -1px;
-  bottom: -1px;
-
-  border-right: 2px solid #ff4f87;
-  border-bottom: 2px solid #ff4f87;
-}
-
-
-/* =========================================================
-   POSTER STATUS
-========================================================= */
-
-.poster-status {
-  position: absolute;
-
-  top: 14px;
-  left: 14px;
-
-  z-index: 4;
-
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 6px 9px;
-
-  background: rgba(5, 8, 15, 0.72);
-
-  color: #a2a7b1;
-
-  font-family: "Oxanium", sans-serif;
-
-  font-size: 7px;
-
-  letter-spacing: 0.14em;
-}
-
-.poster-status span {
-  width: 5px;
-  height: 5px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  background: #ff4f87;
-
-  box-shadow:
-    0 0 8px rgba(255, 79, 135, 0.8);
-}
-
-
-/* =========================================================
-   POSTER SCAN LINE
-========================================================= */
-
-.poster-scan {
-  position: absolute;
-
-  left: 0;
-
-  z-index: 3;
-
-  width: 100%;
-  height: 1px;
-
-  pointer-events: none;
-
-  background: rgba(255, 79, 135, 0.45);
-
-  box-shadow:
-    0 0 12px rgba(255, 79, 135, 0.45);
-}
-
-
-/* =========================================================
-   POSTER CODE
-========================================================= */
-
-.poster-code {
-  display: flex;
-  justify-content: space-between;
-
-  gap: 20px;
-
-  padding-top: 12px;
-
-  color: #858c98;
-
-  font-family: "Oxanium", sans-serif;
-
-  font-size: 7px;
-
-  letter-spacing: 0.14em;
-}
-
-.poster-code span:first-child {
-  color: #ff4f87;
-}
-
-
-/* =========================================================
-   MODAL FOOTER
-========================================================= */
-
-.event-modal-footer {
-  position: relative;
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-
-  height: 44px;
-
-  padding: 0 28px;
-
-  border-top: 1px solid rgba(157, 166, 184, 0.12);
-
-  color: #666d78;
-
-  font-family: "Oxanium", sans-serif;
-
-  font-size: 7px;
-
-  letter-spacing: 0.15em;
-}
-
-.event-modal-footer div {
-  flex: 1;
-
-  height: 1px;
-
-  background: rgba(157, 166, 184, 0.12);
-}
-
-
-/* =========================================================
-   LARGE TABLET
-========================================================= */
-
-@media (max-width: 1100px) {
-  .events-layout {
-    grid-template-columns:
-      minmax(0, 0.8fr)
-      minmax(0, 1.2fr);
-
-    gap: 55px;
-  }
-
-  .event-ticket {
-    width: min(100%, 560px);
-  }
-
-  .event-modal-content {
-    gap: 40px;
-
-    padding: 45px;
-  }
-
-  .event-modal-info h2 {
-    font-size: clamp(54px, 7vw, 82px);
-  }
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
 
 @media (max-width: 900px) {
-  .events-section {
-    padding: 120px 0 100px;
+  .event-carousel {
+    max-width: 680px;
   }
 
-  .events-layout {
-    grid-template-columns: 1fr;
-
-    gap: 60px;
-  }
-
-  .events-intro {
-    padding-bottom: 0;
-  }
-
-  .events-intro h2 {
-    max-width: 700px;
-
-    font-size: clamp(48px, 9vw, 68px);
-  }
-
-  .events-intro p {
-    max-width: 600px;
-  }
-
-
-  /* EVENT IMAGES */
-
-  .events-list {
-    gap: 20px;
-  }
-
-  .event-ticket {
-    width: min(100%, 600px);
-  }
-
-
-  /* MODAL */
-
-  .event-modal-content {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(270px, 0.72fr);
-
-    gap: 30px;
-
-    padding: 38px;
-  }
-
-  .event-modal-actions {
-    grid-template-columns: 1fr;
-  }
-
-  .event-modal-nav-prev {
-    left: 12px;
-  }
-
-  .event-modal-nav-next {
-    right: 12px;
+  .event-ticket-stage {
+    width: min(100%, 640px);
   }
 }
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 700px) {
-  .events-section {
-    min-height: auto;
-
-    padding: 105px 0 80px;
-  }
-
-  .events-layout {
-    gap: 45px;
-  }
-
-
-  /* INTRO */
-
-  .events-kicker {
-    margin-bottom: 20px;
-
-    font-size: 10px;
-  }
-
-  .events-kicker-line {
-    width: 22px;
-  }
-
-  .events-intro h2 {
-    font-size: clamp(40px, 11vw, 58px);
-
-    line-height: 1;
-  }
-
-  .events-intro h2 span {
-    margin-top: 5px;
-  }
-
-  .events-intro p {
-    margin-top: 22px;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-  }
-
-  .events-desktop-break {
-    display: none;
-  }
-
-
-  /* -------------------------------------------------------
-     EVENT IMAGES
-  ------------------------------------------------------- */
-
   .events-list {
-    gap: 18px;
-  }
-
-  .event-ticket {
-    width: min(92%, 520px);
-
-    transform: none;
-  }
-
-  .event-ticket > img {
     width: 100%;
-
-    filter: none;
-
-    opacity: 1;
   }
 
-  .event-ticket:hover {
-    transform: none;
-  }
-
-  .event-ticket:hover > img {
-    transform: none;
-
-    filter: none;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL BACKDROP
-  ------------------------------------------------------- */
-
-  .event-modal-backdrop {
-    align-items: stretch;
-    justify-content: flex-start;
-
-    padding:
-      10px
-      10px
-      calc(62px + env(safe-area-inset-bottom));
-
-    overflow: hidden;
-
-    overscroll-behavior: none;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL
-  ------------------------------------------------------- */
-
-  .event-modal {
+  .event-carousel {
     width: 100%;
-    max-width: none;
-
-    height: 100%;
-    max-height: none;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    box-sizing: border-box;
-
-    -webkit-overflow-scrolling: touch;
-
-    overscroll-behavior: contain;
   }
 
+  .event-ticket-stage {
+    width: 100%;
+    aspect-ratio: 1.55 / 1;
+  }
 
-  /* -------------------------------------------------------
-     MOBILE MODAL NAVIGATION
-  ------------------------------------------------------- */
+  .event-carousel-controls {
+    margin-top: 20px;
+  }
 
-  .event-modal-nav {
-    position: fixed;
+  .event-carousel-progress {
+    margin-bottom: 12px;
+  }
 
-    top: auto;
-    bottom: max(12px, env(safe-area-inset-bottom));
-
-    z-index: 10002;
-
-    width: 42px;
-    height: 34px;
-
+  .event-carousel-dots {
     gap: 5px;
-
-    transform: none;
   }
 
-  .event-modal-nav-prev {
-    left: calc(50% - 52px);
+  .event-carousel-control {
+    min-height: 40px;
+    padding: 8px 7px;
+    gap: 6px;
   }
 
-  .event-modal-nav-next {
-    right: calc(50% - 52px);
-  }
-
-  .event-modal-nav span {
-    font-size: 14px;
-  }
-
-  .event-modal-nav small {
-    font-size: 5px;
-  }
-
-  .event-modal-nav:hover,
-  .event-modal-nav-prev:hover,
-  .event-modal-nav-next:hover {
-    transform: none;
-  }
-
-  .event-modal-nav-prev:hover span,
-  .event-modal-nav-next:hover span {
-    transform: none;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL TOP
-  ------------------------------------------------------- */
-
-  .event-modal-top {
-    min-height: 58px;
-
-    padding: 0 16px;
-  }
-
-  .event-modal-status {
-    display: none;
-  }
-
-  .event-modal-id {
-    gap: 9px;
-  }
-
-  .event-modal-id span {
+  .event-carousel-control-number {
     font-size: 7px;
   }
 
-  .event-modal-id strong {
-    font-size: 16px;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL CLOSE
-  ------------------------------------------------------- */
-
-  .event-modal-close {
-    width: 34px;
-    height: 34px;
-  }
-
-  .event-modal-close span {
-    width: 15px;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL CONTENT
-  ------------------------------------------------------- */
-
-  .event-modal-content {
-    grid-template-columns: 1fr;
-
-    gap: 32px;
-
-    padding: 32px 20px 28px;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL INFO
-  ------------------------------------------------------- */
-
-  .event-modal-category {
-    margin-bottom: 16px;
-
-    font-size: 8px;
-  }
-
-  .event-modal-info h2 {
-    font-size: clamp(52px, 17vw, 76px);
-
-    line-height: 0.9;
-  }
-
-  .event-modal-info h3 {
-    margin-top: 14px;
-
-    font-size: 10px;
-
-    line-height: 1.5;
-  }
-
-  .event-modal-divider {
-    margin: 22px 0;
-  }
-
-  .event-modal-info > p {
-    font-size: 11px;
-
-    line-height: 1.75;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL ACTIONS
-  ------------------------------------------------------- */
-
-  .event-modal-actions {
-    grid-template-columns: 1fr;
-
-    gap: 8px;
-
-    margin-top: 25px;
-  }
-
-  .event-modal-button {
-    width: 100%;
-
-    padding: 12px 14px;
-
-    font-size: 8px;
-  }
-
-
-  /* -------------------------------------------------------
-     POSTER
-  ------------------------------------------------------- */
-
-  .event-modal-poster {
-    width: 100%;
-  }
-
-  .poster-frame img {
-    width: 100%;
-    max-height: none;
-
-    object-fit: contain;
-  }
-
-  .poster-status {
-    top: 10px;
-    left: 10px;
-
-    padding: 5px 7px;
-
+  .event-carousel-control-name {
     font-size: 6px;
+    letter-spacing: 0.05em;
   }
 
-  .poster-code {
-    padding-top: 9px;
-
-    font-size: 5px;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL FOOTER
-  ------------------------------------------------------- */
-
-  .event-modal-footer {
-    height: 40px;
-
-    padding: 0 16px;
-
-    font-size: 6px;
+  .event-ticket-hint {
+    display: none;
   }
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width: 430px) {
-  .events-section {
-    padding-top: 95px;
-    padding-bottom: 70px;
+  .event-ticket-stage {
+    aspect-ratio: 1.48 / 1;
   }
 
-  .events-layout {
-    gap: 38px;
+  .event-carousel-controls {
+    margin-top: 16px;
   }
 
-  .events-intro h2 {
-    font-size: 39px;
+  .event-carousel-control {
+    min-height: 38px;
+    padding: 7px 5px;
+    gap: 5px;
   }
 
-  .events-intro p {
-    font-size: 11px;
+  .event-carousel-control-number {
+    display: none;
   }
 
-
-  /* -------------------------------------------------------
-     EVENT IMAGES
-  ------------------------------------------------------- */
-
-  .events-list {
-    gap: 15px;
-  }
-
-  .event-ticket {
-    width: 94%;
-  }
-
-
-  /* -------------------------------------------------------
-     MODAL
-  ------------------------------------------------------- */
-
-  .event-modal-backdrop {
-    padding:
-      8px
-      8px
-      calc(58px + env(safe-area-inset-bottom));
-  }
-
-  .event-modal-content {
-    padding: 26px 16px 24px;
-
-    gap: 26px;
-  }
-
-  .event-modal-info h2 {
-    font-size: 50px;
-  }
-
-  .event-modal-info h3 {
-    font-size: 9px;
-  }
-
-  .event-modal-divider {
-    margin: 20px 0;
-  }
-
-  .event-modal-info > p {
-    font-size: 10px;
-
-    line-height: 1.7;
-  }
-
-  .event-modal-close {
-    width: 32px;
-    height: 32px;
-  }
-
-  .event-modal-footer {
-    height: 38px;
-
-    padding: 0 12px;
-
-    font-size: 5px;
-  }
-
-
-  /* MOBILE NAV */
-
-  .event-modal-nav {
-    width: 40px;
-    height: 32px;
-  }
-
-  .event-modal-nav-prev {
-    left: calc(50% - 48px);
-  }
-
-  .event-modal-nav-next {
-    right: calc(50% - 48px);
+  .event-carousel-control-name {
+    width: 100%;
+    text-align: center;
+    font-size: 5.5px;
   }
 }
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 360px) {
-  .events-section {
-    padding-top: 88px;
-  }
-
-  .events-intro h2 {
-    font-size: 35px;
-  }
-
-  .events-intro p {
-    font-size: 10px;
-  }
-
-
-  /* EVENT IMAGES */
-
-  .event-ticket {
-    width: 96%;
-  }
-
-
-  /* MODAL */
-
-  .event-modal-content {
-    padding: 23px 13px 22px;
-
-    gap: 23px;
-  }
-
-  .event-modal-info h2 {
-    font-size: 44px;
-  }
-
-  .event-modal-info h3 {
-    font-size: 8px;
-  }
-
-  .event-modal-info > p {
-    font-size: 9px;
-
-    line-height: 1.65;
-  }
-
-  .event-modal-button {
-    padding: 11px 12px;
-
-    font-size: 7px;
-  }
-
-  .poster-status {
-    font-size: 5px;
-  }
-
-  .poster-code {
-    font-size: 4.5px;
-  }
-
-  .event-modal-footer {
-    font-size: 4.5px;
-  }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .event-ticket,
+
   .event-ticket > img,
+
   .event-modal-nav,
+
   .event-modal-button,
+
   .event-modal-close,
+
   .poster-frame img {
+
     transition: none;
+
   }
+
 }
