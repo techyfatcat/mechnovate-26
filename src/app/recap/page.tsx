@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import "./recap.css";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 
 type GalleryItem = {
@@ -19,84 +20,84 @@ const galleryItems: GalleryItem[] = [
     id: 1,
     type: "image",
     category: "Events",
-    src: "/images/recap/gallery-1.jpg",
+    src: "/images/recap1.jpg",
     title: "Opening Ceremony",
   },
   {
     id: 2,
     type: "image",
     category: "Events",
-    src: "/images/recap/gallery-2.jpg",
+    src: "/images/recap2.jpg",
     title: "The Mechnovate Crowd",
   },
   {
     id: 3,
-    type: "video",
+    type: "image",
     category: "Talks",
-    src: "/images/recap/gallery-3.jpg",
+    src: "/images/recap3.jpg",
     title: "Expert Talk",
   },
   {
     id: 4,
     type: "image",
     category: "Competitions",
-    src: "/images/recap/gallery-4.jpg",
+    src: "/images/recap4.jpg",
     title: "Technical Competition",
   },
   {
     id: 5,
     type: "image",
     category: "Workshops",
-    src: "/images/recap/gallery-5.jpg",
+    src: "/images/recap5.jpg",
     title: "Hands-on Workshop",
   },
   {
     id: 6,
-    type: "video",
+    type: "image",
     category: "Events",
-    src: "/images/recap/gallery-6.jpg",
+    src: "/images/recap13.jpg",
     title: "Moments from Mechnovate",
   },
   {
     id: 7,
     type: "image",
     category: "Cultural",
-    src: "/images/recap/gallery-7.jpg",
+    src: "/images/recap7.jpg",
     title: "Cultural Night",
   },
   {
     id: 8,
     type: "image",
     category: "Events",
-    src: "/images/recap/gallery-8.jpg",
+    src: "/images/recap8.jpg",
     title: "Unforgettable Moments",
   },
   {
     id: 9,
-    type: "video",
+    type: "image",
     category: "Talks",
-    src: "/images/recap/gallery-9.jpg",
+    src: "/images/recap9.jpg",
     title: "Ideas in Motion",
   },
   {
     id: 10,
     type: "image",
     category: "Workshops",
-    src: "/images/recap/gallery-10.jpg",
+    src: "/images/recap10.jpg",
     title: "Building Together",
   },
   {
     id: 11,
     type: "image",
     category: "Competitions",
-    src: "/images/recap/gallery-11.jpg",
+    src: "/images/recap11.jpg",
     title: "The Competition Floor",
   },
   {
     id: 12,
     type: "image",
     category: "Cultural",
-    src: "/images/recap/gallery-12.jpg",
+    src: "/images/recap12.jpg",
     title: "Celebrating Together",
   },
 ];
@@ -138,7 +139,7 @@ export default function RecapPage() {
         <div className="polaroid polaroid-one">
           <div className="polaroid-image">
             <Image
-              src="/images/recap/hero-1.jpg"
+              src="/images/recap1.jpg"
               alt="Mechnovate 25 event"
               fill
               priority
@@ -152,35 +153,35 @@ export default function RecapPage() {
         <div className="polaroid polaroid-two">
           <div className="polaroid-image">
             <Image
-              src="/images/recap/hero-2.jpg"
+              src="/images/recap5.jpg"
               alt="Mechnovate 25 talk"
               fill
               priority
               sizes="(max-width: 768px) 35vw, 240px"
             />
           </div>
-          <span>Inspiring Talks</span>
+          <span>Hands-on Innovation</span>
         </div>
 
         {/* Left bottom image */}
         <div className="polaroid polaroid-three">
           <div className="polaroid-image">
             <Image
-              src="/images/recap/hero-3.jpg"
+              src="/images/recap3.jpg"
               alt="Mechnovate 25 workshop"
               fill
               priority
               sizes="(max-width: 768px) 40vw, 270px"
             />
           </div>
-          <span>Hands-on Innovation</span>
+          <span>Inspiring Talks</span>
         </div>
 
         {/* Right top image */}
         <div className="polaroid polaroid-four">
           <div className="polaroid-image">
             <Image
-              src="/images/recap/hero-4.jpg"
+              src="/images/recap2.jpg"
               alt="Mechnovate 25 participants"
               fill
               priority
@@ -194,7 +195,7 @@ export default function RecapPage() {
         <div className="polaroid polaroid-five">
           <div className="polaroid-image">
             <Image
-              src="/images/recap/hero-5.jpg"
+              src="/images/recap4.jpg"
               alt="Mechnovate 25 stage"
               fill
               priority
@@ -232,13 +233,7 @@ export default function RecapPage() {
 
         </div>
 
-        <div className="hero-side-text hero-side-text-left">
-          IDEAS
-          <br />
-          PEOPLE
-          <br />
-          IMPACT
-        </div>
+       
 
         <div className="hero-side-text hero-side-text-right">
           MORE THAN
@@ -317,7 +312,7 @@ export default function RecapPage() {
 
             <div className="about-photo about-photo-main">
               <Image
-                src="/images/recap/about-1.jpg"
+                src="/images/recap7.jpg"
                 alt="Mechnovate 25 main event"
                 fill
                 sizes="(max-width: 900px) 80vw, 500px"
@@ -326,7 +321,7 @@ export default function RecapPage() {
 
             <div className="about-photo about-photo-small about-photo-two">
               <Image
-                src="/images/recap/about-2.jpg"
+                src="/images/recap8.jpg"
                 alt="Mechnovate 25 event moment"
                 fill
                 sizes="300px"
@@ -335,25 +330,50 @@ export default function RecapPage() {
 
             <div className="about-photo about-photo-small about-photo-three">
               <Image
-                src="/images/recap/about-3.jpg"
+                src="/images/recap9.jpg"
                 alt="Mechnovate 25 robotics"
                 fill
                 sizes="300px"
               />
             </div>
 
-            <div className="about-handwriting">
-              Ideas
-              <br />
-              People
-              <br />
-              Impact
-            </div>
+         
 
           </div>
 
         </div>
 
+      </section>
+
+            {/* =====================================================
+          SECTION 3 — RECAP VIDEO
+      ====================================================== */}
+
+      <section className="recap-video-section">
+        <div className="recap-video-heading">
+          <div className="section-label">THE EXPERIENCE</div>
+
+          <h2>
+            RELIVE THE <span>MOMENTS</span>
+          </h2>
+
+          <p>
+            A glimpse into the energy, ideas and memories that made
+            Mechnovate&apos;25 unforgettable.
+          </p>
+        </div>
+
+        <div className="recap-video-wrapper">
+          <video
+            className="recap-video"
+            src="/images/recap14.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        </div>
       </section>
 
 
@@ -454,6 +474,7 @@ export default function RecapPage() {
       </section>
 
     </main>
+    <Footer />
     </>
   );
 }
