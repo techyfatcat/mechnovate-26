@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navigation = [
   { label: "Home", href: "/" },
@@ -11,27 +13,24 @@ const navigation = [
 
 export function Header() {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   const handleHomeClick = (
     event: React.MouseEvent<HTMLAnchorElement>
   ) => {
     if (pathname === "/") {
       event.preventDefault();
-
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "auto",
-      });
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
   };
 
   const isActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-
-    return pathname.startsWith(href);
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
@@ -44,12 +43,15 @@ export function Header() {
             aria-label="Mechnovate '26 Home"
             onClick={handleHomeClick}
           >
-            <span className="brand-mark" aria-hidden="true">
-              <span />
-            </span>
-
-            <span className="brand-name">
-              MECHNOVATE <span>'26</span>
+            <span className="brand-mark">
+              <Image
+                src="/images/mechlogo.png"
+                alt="Mechnovate '26"
+                width={120}
+                height={58}
+                priority
+                className="brand-logo"
+              />
             </span>
           </Link>
 
@@ -59,11 +61,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={isActive(item.href) ? "active" : ""}
-                onClick={
-                  item.href === "/"
-                    ? handleHomeClick
-                    : undefined
-                }
+                onClick={item.href === "/" ? handleHomeClick : undefined}
               >
                 {item.label}
               </Link>
@@ -72,9 +70,10 @@ export function Header() {
 
           <button
             type="button"
-            className="mobile-menu-btn"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
+            className={`mobile-menu-btn${mobileOpen ? " open" : ""}`}
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((open) => !open)}
           >
             <span />
             <span />
@@ -82,6 +81,22 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      <nav
+        className={`mobile-menu${mobileOpen ? " open" : ""}`}
+        aria-label="Mobile navigation"
+      >
+        {navigation.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={isActive(item.href) ? "active" : ""}
+            onClick={item.href === "/" ? handleHomeClick : undefined}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

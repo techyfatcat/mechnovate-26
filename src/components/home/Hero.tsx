@@ -11,9 +11,9 @@ export function Hero() {
         {/* Left content */}
         <div className="hero-copy">
           <h1>
-            <span>IDEATE.</span>
-            <span>INNOVATE.</span>
-            <strong>IMPACT.</strong>
+            <span>Engineered.</span>
+            <span>For.</span>
+            <strong>Tomorrow.</strong>
           </h1>
 
           <p>

@@ -80,7 +80,7 @@ export function Footer() {
               official.mechnovate@gmail.com
             </a>
 
-            <a href="tel:+919702180838">+91 9702180838</a>
+            <a href="tel:+919591474545">+91 95914 74545</a>
 
             <p>VIT, Vellore, Tamil Nadu, India</p>
           </div>

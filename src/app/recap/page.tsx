@@ -267,11 +267,7 @@ export default function RecapPage() {
             </p>
 
             <p>
-              Mechnovate’25 brought together curious minds,
-              bold ideas and unstoppable energy. From
-              thrilling competitions to insightful talks and
-              hands-on workshops, the event created a space
-              where innovation met community.
+              Mechnovate 2025 , the flagship three-day technical symposium organised by the American Society of Mechanical Engineers – VIT (ASME-VIT). The symposium is envisioned as a premier platform that brings together students, researchers, academicians, industry professionals, and engineering enthusiasts from across India to explore emerging developments, innovations, and technological advancements in the field of mechanical engineering.
             </p>
 
             <p>

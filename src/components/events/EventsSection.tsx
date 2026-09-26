@@ -50,7 +50,7 @@ const events: Event[] = [
 
     image: "/images/events/DiveX.png",
 
-    poster: "/images/events/DiveX.png",
+    poster: "/images/events/image4.png",
 
   },
 
@@ -70,7 +70,7 @@ const events: Event[] = [
 
     image: "/images/events/CubeSat.png",
 
-    poster: "/images/events/CubeSat.png",
+    poster: "/images/events/image3.png",
 
   },
 
@@ -90,7 +90,7 @@ const events: Event[] = [
 
     image: "/images/events/RCRacing.png",
 
-    poster: "/images/events/RCRacing.png",
+    poster: "/images/events/image1.png",
 
   },
 
@@ -98,9 +98,9 @@ const events: Event[] = [
 
     id: "04",
 
-    title: "DRONE RUSH",
+    title: "OCTA-BOT",
 
-    subtitle: "DRONE WORKSHOP",
+    subtitle: "OCTA-BOT WORKSHOP",
 
     description:
 
@@ -108,9 +108,9 @@ const events: Event[] = [
 
     category: "WORKSHOP",
 
-    image: "/images/events/DroneRush.png",
+    image: "/images/events/OctaBot.png",
 
-    poster: "/images/events/DroneRush.png",
+    poster: "/images/events/image2.png",
 
   },
 

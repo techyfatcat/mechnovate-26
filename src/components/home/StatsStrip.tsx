@@ -1,17 +1,15 @@
 "use client";
 
-const sponsors = [
-  "Orbital Dynamics",
-  "Vertex Robotics",
-  "Ironclad Motors",
-  "Nova Systems",
-  "Apex Fabrication",
-  "Quantum Gears",
-  "Circuit & Steel",
-  "Helios Industries",
-];
+import Image from "next/image";
+
+const sponsors = Array.from(
+  { length: 11 },
+  (_, index) => `/images/image${index + 1}.png`
+);
 
 export function SponsorsMarquee() {
+  const marqueeSponsors = [...sponsors, ...sponsors];
+
   return (
     <section className="sponsors-wrap">
       <div className="container">
@@ -20,10 +18,20 @@ export function SponsorsMarquee() {
 
           <div className="sponsors-track-viewport">
             <div className="sponsors-track">
-              {[...sponsors, ...sponsors].map((name, i) => (
-                <span className="sponsor-item" key={`${name}-${i}`}>
-                  {name}
-                </span>
+              {marqueeSponsors.map((src, index) => (
+                <div
+                  className="sponsor-item"
+                  key={`${src}-${index}`}
+                  aria-hidden={index >= sponsors.length}
+                >
+                  <Image
+                    src={src}
+                    alt={index < sponsors.length ? `Sponsor ${index + 1}` : ""}
+                    width={140}
+                    height={50}
+                    className="sponsor-logo"
+                  />
+                </div>
               ))}
             </div>
           </div>
