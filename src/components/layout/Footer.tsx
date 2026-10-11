@@ -74,8 +74,6 @@ export function Footer() {
           <div className="mech-footer-col mech-footer-contact">
             <h4 className="mech-footer-col-heading">Contact Us</h4>
 
-            <a href="mailto:asme@vit.ac.in">asme@vit.ac.in</a>
-
             <a href="mailto:official.mechnovate@gmail.com">
               official.mechnovate@gmail.com
             </a>

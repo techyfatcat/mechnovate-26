@@ -278,17 +278,17 @@ export default function RecapPage() {
             <div className="stats">
 
               <div className="stat">
-                <strong>3K+</strong>
+                <strong>300+</strong>
                 <span>Participants</span>
               </div>
 
               <div className="stat">
-                <strong>25+</strong>
+                <strong>8</strong>
                 <span>Events</span>
               </div>
 
               <div className="stat">
-                <strong>50+</strong>
+                <strong>20+</strong>
                 <span>Colleges</span>
               </div>
 
