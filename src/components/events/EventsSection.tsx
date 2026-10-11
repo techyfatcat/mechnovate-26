@@ -844,21 +844,6 @@ export function EventsSection() {
 
 
 
-                    <button
-
-                      type="button"
-
-                      className="event-modal-button"
-
-                      onClick={() => setSelectedEvent(null)}
-
-                    >
-
-                      <span>CLOSE EVENT</span>
-
-                      <span>×</span>
-
-                    </button>
 
                   </motion.div>
 
