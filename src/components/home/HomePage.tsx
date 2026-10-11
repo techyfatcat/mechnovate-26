@@ -14,7 +14,6 @@ export function HomePage() {
         <Hero />
         <SponsorsMarquee />
         <AboutSection />
-        <DisciplinesSection />
         <TeamSection />
       </main>
       <Footer />

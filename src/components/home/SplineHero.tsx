@@ -8,7 +8,7 @@ export default function SplineHero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const appRef = useRef<SplineApplication | null>(null);
-  const scrollTimerRef = useRef<number | null>(null);
+  const visibleRef = useRef(false);
 
   const [shouldLoad, setShouldLoad] = useState(false);
 
@@ -17,9 +17,7 @@ export default function SplineHero() {
     let cancelled = false;
 
     const start = () => {
-      if (!cancelled) {
-        setShouldLoad(true);
-      }
+      if (!cancelled) setShouldLoad(true);
     };
 
     const win = window as Window & {
@@ -32,7 +30,6 @@ export default function SplineHero() {
 
     if (typeof win.requestIdleCallback === "function") {
       const idleId = win.requestIdleCallback(start, { timeout: 1400 });
-
       return () => {
         cancelled = true;
         win.cancelIdleCallback?.(idleId);
@@ -40,11 +37,32 @@ export default function SplineHero() {
     }
 
     const timeoutId = window.setTimeout(start, 700);
-
     return () => {
       cancelled = true;
       window.clearTimeout(timeoutId);
     };
+  }, []);
+
+  // Track visibility of the stage (works anywhere on the page).
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visibleRef.current = entry.isIntersecting;
+
+        const app = appRef.current;
+        if (!app) return;
+
+        if (entry.isIntersecting) app.play();
+        else app.stop();
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(viewport);
+    return () => observer.disconnect();
   }, []);
 
   // Initialize the 3D scene once.
@@ -74,7 +92,12 @@ export default function SplineHero() {
         if (cancelled) {
           app.dispose();
           appRef.current = null;
+          return;
         }
+
+        // Sync with current visibility once the scene is ready.
+        if (visibleRef.current) app.play();
+        else app.stop();
       } catch (error) {
         console.error("Failed to load Spline scene:", error);
       }
@@ -84,106 +107,8 @@ export default function SplineHero() {
 
     return () => {
       cancelled = true;
-
-      if (scrollTimerRef.current !== null) {
-        window.clearTimeout(scrollTimerRef.current);
-        scrollTimerRef.current = null;
-      }
-
       appRef.current?.dispose();
       appRef.current = null;
-    };
-  }, [shouldLoad]);
-
-  // Freeze rendering as soon as the user scrolls away from the hero.
-  // Resume only after the user has returned near the hero and scrolling settles.
-  useEffect(() => {
-    if (!shouldLoad) return;
-
-    let ticking = false;
-
-    const updatePlayback = () => {
-      ticking = false;
-
-      const app = appRef.current;
-      const viewport = viewportRef.current;
-
-      if (!app || !viewport) return;
-
-      const rect = viewport.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      const visibleHeight =
-        Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-
-      const visibility =
-        rect.height > 0 ? Math.max(0, visibleHeight) / rect.height : 0;
-
-      const nearHeroTop = window.scrollY < 80;
-      const heroIsMostlyVisible = visibility >= 0.45;
-
-      if (!nearHeroTop || !heroIsMostlyVisible) {
-        app.stop();
-        return;
-      }
-
-      if (scrollTimerRef.current !== null) {
-        window.clearTimeout(scrollTimerRef.current);
-      }
-
-      scrollTimerRef.current = window.setTimeout(() => {
-        // Re-check after scrolling settles so we never restart WebGL
-        // while the user is actively moving down the page.
-        const currentRect = viewport.getBoundingClientRect();
-        const currentVisibleHeight =
-          Math.min(currentRect.bottom, window.innerHeight) -
-          Math.max(currentRect.top, 0);
-
-        const currentVisibility =
-          currentRect.height > 0
-            ? Math.max(0, currentVisibleHeight) / currentRect.height
-            : 0;
-
-        if (window.scrollY < 80 && currentVisibility >= 0.45) {
-          app.play();
-        }
-      }, 140);
-    };
-
-    const onScroll = () => {
-      // Freeze immediately. This is the important part for smooth scrolling.
-      appRef.current?.stop();
-
-      if (scrollTimerRef.current !== null) {
-        window.clearTimeout(scrollTimerRef.current);
-      }
-
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(updatePlayback);
-      }
-    };
-
-    const onResize = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(updatePlayback);
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
-
-    updatePlayback();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-
-      if (scrollTimerRef.current !== null) {
-        window.clearTimeout(scrollTimerRef.current);
-        scrollTimerRef.current = null;
-      }
     };
   }, [shouldLoad]);
 
