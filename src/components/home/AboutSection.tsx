@@ -91,8 +91,8 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <Link href="/events" className="about-cta">
-              EXPLORE EVENTS
+            <Link href="/recap" className="about-cta">
+              Mechnovate '25
             </Link>
           </motion.div>
         </motion.div>
