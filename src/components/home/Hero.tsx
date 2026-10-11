@@ -59,7 +59,7 @@ export function Hero() {
       {/* Center content */}
       <div className="hero-center">
         <p className="hero-eyebrow hero-anim hero-from-up" style={d(0.5)}>
-          VIT · ASME PRESENTS
+          ASME-VIT PRESENTS
         </p>
 
         <h1
