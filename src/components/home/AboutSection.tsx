@@ -103,13 +103,13 @@ export function AboutSection() {
             transition={{ delay: 0.6, duration: 0.6 }}
           >
             <Link href="/recap" className="about-cta">
-              Mechnovate '25
+              Mechnovate &apos;25
             </Link>
           </motion.div>
         </motion.div>
 
         <motion.div
-          className="about-art robotics-hud"
+          className="about-art robotics-hud mt-12 md:mt-0"
           initial={{ opacity: 0, x: 60, scale: 0.92 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -127,16 +127,15 @@ export function AboutSection() {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           />
 
-          {/* Lumo Message Box with Typing Animation */}
+          {/* Lumo Message Box - Only visible on desktop */}
           <motion.div
-            className="lumo-chat-bubble"
+            className="lumo-chat-bubble hidden md:block"
             initial={{ opacity: 0, y: 15, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7, duration: 0.5, ease: "easeOut" }}
           >
             <div className="lumo-header">
-            
               <span className="lumo-title">Hi, I&apos;m Lumo</span>
             </div>
             <div className="lumo-typed-body">
@@ -145,7 +144,7 @@ export function AboutSection() {
             </div>
           </motion.div>
 
-          {/* 3D robot stage */}
+          {/* 3D robot stage / Mobile Image fallback */}
           <div
             ref={stageRef}
             className="about-spline-stage"

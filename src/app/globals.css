@@ -7621,3 +7621,64 @@ body {
   border-color: rgba(10, 15, 30, 0.9) transparent transparent transparent;
   filter: drop-shadow(0 2px 2px rgba(56, 189, 248, 0.3));
 }
+
+@media (max-width: 780px) {
+  /* Push the entire art container down on mobile */
+  .about-art.robotics-hud {
+    margin-top: 48px !important;
+  }
+  
+  /* Force hide the Lumo chat bubble on mobile */
+  .lumo-chat-bubble,
+  .robot-greeting {
+    display: none !important;
+  }
+}
+
+@media (max-width: 780px) {
+  /* Center the footer inner content and stack sections */
+  .mech-footer-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Center the brand section, logo, and social row */
+  .mech-footer-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-bottom: 32px !important;
+  }
+
+  .mech-footer-logo-img {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto 16px auto !important;
+  }
+
+  .mech-footer-social {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  /* Center the rest of the columns as well for consistency */
+  .mech-footer-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .mech-footer-col {
+    text-align: center !important;
+    align-items: center !important;
+    margin-bottom: 24px !important;
+  }
+}
