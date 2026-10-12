@@ -37,23 +37,32 @@ export function Header() {
     <header className="site-header">
       <div className="header-shell">
         <div className="header-inner">
-          <Link
-            href="/"
-            className="brand"
-            aria-label="Mechnovate '26 Home"
-            onClick={handleHomeClick}
-          >
-            <span className="brand-mark">
+          <div className="brand-group">
+            <Link href="/" className="navbar-logo asme-badge" aria-label="ASME">
+              <Image
+                src="/images/asme.jpg"
+                alt="ASME"
+                width={64}
+                height={64}
+                priority
+              />
+            </Link>
+
+            <Link
+              href="/"
+              className="navbar-logo mech-badge"
+              aria-label="Mechnovate '26 Home"
+              onClick={handleHomeClick}
+            >
               <Image
                 src="/images/mechlogo.png"
                 alt="Mechnovate '26"
-                width={120}
-                height={58}
+                width={140}
+                height={62}
                 priority
-                className="brand-logo"
               />
-            </span>
-          </Link>
+            </Link>
+          </div>
 
           <nav className="desktop-nav" aria-label="Main navigation">
             {navigation.map((item) => (
@@ -67,6 +76,16 @@ export function Header() {
               </Link>
             ))}
           </nav>
+
+          <Link href="/" className="navbar-logo vit-logo" aria-label="VIT">
+            <Image
+              src="/images/vit.jpg"
+              alt="VIT"
+              width={160}
+              height={52}
+              priority
+            />
+          </Link>
 
           <button
             type="button"

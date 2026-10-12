@@ -6872,3 +6872,571 @@ body {
 .about-spline-stage {
   top: -60px; /* increase to move the model higher, decrease to lower it */
 }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Keep navigation centered between the logo groups */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .header-inner {
+    gap: 12px;
+  }
+
+  .brand-group {
+    gap: 8px;
+  }
+
+  .desktop-nav {
+    gap: 16px;
+  }
+
+  .navbar-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .navbar-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-group {
+    gap: 7px;
+  }
+
+  .header-inner {
+    gap: 8px;
+  }
+
+  .mobile-menu-btn {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-group {
+    gap: 5px;
+  }
+}
+
+/* =========================================================
+   NAVBAR LOGOS — ENLARGED, ROUNDED & PROPORTIONAL
+   ========================================================= */
+
+.header-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 36px 0 24px !important;
+}
+
+.brand-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  height: 100% !important;
+  padding-right: 24px !important;
+  border-right: 1px solid rgba(255, 79, 135, 0.28) !important;
+}
+
+.navbar-logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+}
+
+/* ASME Logo Styling */
+.asme-badge img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 79, 135, 0.35);
+  box-shadow: 0 0 12px rgba(255, 79, 135, 0.2);
+}
+
+/* Mechnovate Main Logo Styling */
+.mech-badge img {
+  width: 124px !important;
+  height: 58px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 8px rgba(255, 79, 135, 0.4));
+}
+
+/* VIT Logo Styling (Horizontally Wider) */
+.vit-logo {
+  position: absolute !important;
+  right: 32px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  padding-left: 20px !important;
+  border-left: 1px solid rgba(157, 166, 184, 0.18);
+}
+
+.vit-logo img {
+  width: 92px !important;
+  height: 48px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 79, 135, 0.35);
+  box-shadow: 0 0 12px rgba(255, 79, 135, 0.2);
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS FOR LOGOS
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .brand-group {
+    gap: 12px !important;
+    padding-right: 16px !important;
+  }
+  .asme-badge img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .mech-badge img {
+    width: 105px !important;
+    height: 50px !important;
+  }
+  .vit-logo {
+    right: 24px !important;
+  }
+  .vit-logo img {
+    width: 78px !important;
+    height: 42px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .header-inner {
+    padding: 0 16px !important;
+  }
+
+  .brand-group {
+    border-right: none !important;
+    padding-right: 0 !important;
+    gap: 10px !important;
+  }
+
+  .asme-badge img {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 8px !important;
+  }
+
+  .mech-badge img {
+    width: 90px !important;
+    height: 42px !important;
+  }
+
+  .vit-logo {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-right: 8px !important;
+  }
+
+  .vit-logo img {
+    width: 68px !important;
+    height: 36px !important;
+    border-radius: 6px !important;
+  }
+}
+
+/* =========================================================
+   NAVBAR LOGOS — SPACED & UN-SQUEEZED HORIZONTAL LAYOUT
+   ========================================================= */
+
+.header-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 36px 0 24px !important;
+}
+
+.brand-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 36px !important; /* Proper breathing room between ASME & Mechnovate */
+  height: 100% !important;
+  padding-right: 28px !important;
+  border-right: 1px solid rgba(255, 79, 135, 0.28) !important;
+}
+
+.navbar-logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+}
+
+/* ASME Logo Styling */
+.asme-badge img {
+  width: 58px !important;
+  height: 58px !important;
+  object-fit: contain !important; /* ensures full square logo fits without cutting */
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 79, 135, 0.35);
+  box-shadow: 0 0 12px rgba(255, 79, 135, 0.2);
+  background: #ffffff;
+}
+
+/* Mechnovate Main Logo Styling */
+.mech-badge img {
+  width: 135px !important;
+  height: 58px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 8px rgba(255, 79, 135, 0.4));
+}
+
+/* VIT Logo Styling (Horizontally extended width to prevent text squishing) */
+.vit-logo {
+  position: absolute !important;
+  right: 32px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  padding-left: 24px !important;
+  border-left: 1px solid rgba(157, 166, 184, 0.18);
+}
+
+.vit-logo img {
+  width: 150px !important; /* Increased width to accommodate horizontal text */
+  height: 50px !important;
+  object-fit: contain !important; /* Changed to contain so wide rectangular ratios aren't squeezed */
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 79, 135, 0.35);
+  box-shadow: 0 0 12px rgba(255, 79, 135, 0.2);
+  background: #ffffff;
+  padding: 4px;
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .brand-group {
+    gap: 16px !important;
+    padding-right: 18px !important;
+  }
+  .asme-badge img {
+    width: 46px !important;
+    height: 46px !important;
+  }
+  .mech-badge img {
+    width: 110px !important;
+    height: 48px !important;
+  }
+  .vit-logo {
+    right: 24px !important;
+  }
+  .vit-logo img {
+    width: 120px !important;
+    height: 42px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .header-inner {
+    padding: 0 16px !important;
+  }
+
+  .brand-group {
+    border-right: none !important;
+    padding-right: 0 !important;
+    gap: 12px !important;
+  }
+
+  .asme-badge img {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 8px !important;
+  }
+
+  .mech-badge img {
+    width: 92px !important;
+    height: 40px !important;
+  }
+
+  .vit-logo {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-right: 8px !important;
+  }
+
+  .vit-logo img {
+    width: 105px !important;
+    height: 36px !important;
+    border-radius: 6px !important;
+  }
+}
+
+/* =========================================================
+   MECHNOVATE FOOTER LAYOUT FIXES
+   ========================================================= */
+
+.site-footer.mech-footer {
+  position: relative;
+  padding: 64px 0 52px !important;
+  background: #05080f;
+  border-top: 1px solid rgba(255, 79, 135, 0.25);
+}
+
+.mech-footer-inner {
+  display: grid !important;
+  grid-template-columns: 0.5fr 1fr 0.5fr  !important; /* Balances the layout between brand and columns */
+  padding-bottom: 80px !important;
+  gap: 10px !important;
+  align-items: start !important;
+}
+
+/* Brand Section (Logo + Socials) */
+.mech-footer-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 24px !important;
+  margin-top: -4px !important; /* Aligns top of logo with top of columns */
+}
+
+.mech-footer-logo-img img {
+  width: 150px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 10px rgba(255, 79, 135, 0.4));
+}
+
+.mech-footer-social {
+  display: flex !important;
+  gap: 12px !important;
+}
+
+/* Columns Section (Site + Contact Us) */
+.mech-footer-columns {
+  display: grid !important;
+  grid-template-columns: 1fr 1.5fr !important; /* Controlled spacing between Site and Contact Us */
+  gap: 60px !important;
+}
+
+.mech-footer-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.mech-footer-col-heading {
+  margin: 0 0 8px 0 !important;
+  color: var(--accent, #ff4f87) !important;
+  font-family: var(--font-oxanium), "Oxanium", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+
+.mech-footer-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.mech-footer-nav a,
+.mech-footer-contact a,
+.mech-footer-contact p {
+  color: #a0a6b0 !important;
+  font-size: 13px !important;
+  text-decoration: none !important;
+  transition: color 180ms ease;
+  margin: 0 !important;
+}
+
+.mech-footer-nav a:hover,
+.mech-footer-contact a:hover {
+  color: #ffffff !important;
+}
+
+.mech-footer-contact {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+/* =========================================================
+   RESPONSIVE FOOTER FOR TABLETS & MOBILES
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .mech-footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  
+  .mech-footer-brand {
+    margin-top: 0 !important;
+  }
+
+  .mech-footer-columns {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .mech-footer-columns {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+}
+
+/* =========================================================
+   FOOTER — SITE & CONTACT COLUMNS PULLED LEFT
+   ========================================================= */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 48px;
+  background: #070b12;
+}
+
+.footer-grid {
+  display: grid !important;
+  grid-template-columns: 2.4fr 0.8fr 1.2fr !important; /* Pulls columns closer to the brand column */
+  gap: 80px !important; /* Tighter gap between brand and columns */
+  padding-bottom: 36px !important;
+  align-items: start !important;
+}
+
+.footer-brand {
+  margin-bottom: 15px;
+}
+
+.footer-copy {
+  color: #707782;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.site-footer h3 {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  margin: 0 0 13px;
+  color: #d8dbe0;
+}
+
+.site-footer > .container > div a,
+.site-footer > .container > div span {
+  display: block;
+  color: #747b85;
+  font-size: 10px;
+  margin: 0 0 8px;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.social-row {
+  display: flex;
+  gap: 8px;
+}
+
+.social-row a {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  display: grid !important;
+  place-items: center;
+  margin: 0 !important;
+}
+
+.social-row a svg {
+  color: #a0a6ae;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding: 17px 0;
+  color: #5d646f;
+  text-align: center;
+  font-size: 9px;
+}
+
+/* Target the columns container or wrapper holding Site & Contact Us and shift it left */
+.footer-grid > div:not(.footer-brand) {
+  margin-left: -60px !important; /* Adjust this negative value to pull them as far left as you want */
+}
+
+.about-heading {
+  font-family: "YourHeadingFont", sans-serif;
+}
+
+.about-description {
+  font-family: "YourBodyFont", sans-serif;
+}

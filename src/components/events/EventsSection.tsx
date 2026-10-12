@@ -50,7 +50,7 @@ const events: Event[] = [
 
     image: "/images/events/DiveX.png",
 
-    poster: "/images/events/image4.png",
+    poster: "/images/events/divex1.jpeg",
 
   },
 
@@ -70,11 +70,11 @@ const events: Event[] = [
 
     image: "/images/events/CubeSat.png",
 
-    poster: "/images/events/image3.png",
+    poster: "/images/events/cubesat1.jpeg",
 
   },
 
-  {
+  /* {
 
     id: "03",
 
@@ -92,11 +92,11 @@ const events: Event[] = [
 
     poster: "/images/events/image1.png",
 
-  },
+  }, */
 
   {
 
-    id: "04",
+    id: "03",
 
     title: "OCTA-BOT",
 
@@ -110,7 +110,7 @@ const events: Event[] = [
 
     image: "/images/events/OctaBot.png",
 
-    poster: "/images/events/image2.png",
+    poster: "/images/events/octabot1.jpeg",
 
   },
 
@@ -820,7 +820,7 @@ export function EventsSection() {
 
                     <Link
 
-                      href="/register"
+                      href="https://events.vit.ac.in/events/ASME"
 
                       className="event-modal-button event-modal-button-primary"
 
@@ -834,15 +834,7 @@ export function EventsSection() {
 
 
 
-                    <button type="button" className="event-modal-button">
-
-                      <span>RULES & DETAILS</span>
-
-                      <span>↗</span>
-
-                    </button>
-
-
+                    
 
 
                   </motion.div>
@@ -961,7 +953,7 @@ export function EventsSection() {
 
                   <div className="poster-code">
 
-                    <span>SCAN TO REGISTER</span>
+              
 
                     <span>{selectedEvent.id} // MECHNOVATE '26</span>
 

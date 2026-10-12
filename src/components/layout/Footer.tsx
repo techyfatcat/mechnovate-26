@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
 
 const siteLinks = [
   { label: "Home", href: "/" },
-  { label: "Recap", href: "/recap" },
+  { label: "Mechnovate '25", href: "/recap" },
   { label: "Events", href: "/events" },
 ];
 
@@ -37,10 +38,16 @@ export function Footer() {
         <div className="mech-footer-brand">
           <Link
             href="/"
-            className="mech-footer-logo"
-            aria-label="Mechnovate 26 home"
+            className="mech-footer-logo mech-footer-logo-img"
+            aria-label="Mechnovate '26 home"
           >
-            MECHNOVATE <span>&apos;26</span>
+            <Image
+              src="/images/mechlogo.png"
+              alt="Mechnovate '26"
+              width={140}
+              height={60}
+              priority
+            />
           </Link>
 
           <div className="mech-footer-social" aria-label="Social links">
