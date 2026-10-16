@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oxanium, Sora } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
+import { Analytics } from "@vercel/analytics/next";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${sora.variable} ${oxanium.variable}`}>
         <Preloader />
         {children}
+        <Analytics />
       </body>
     </html>
   );
