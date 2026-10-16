@@ -104,7 +104,7 @@ const events: Event[] = [
 
     description:
 
-      "Take your first flight into the world of drones with Drone Rush, a hands-on workshop that introduces participants to the fundamentals of drone technology. Learn how drones are designed, assembled, controlled, and operated while gaining practical exposure to the components and systems that make them fly.",
+      "This is a two day workshop which teaches participants how to build and program an 8-Leg Spider Robot using the Theo Jansen linkage mechanism. The event focuses on converting standard motor rotation into a synchronized, wheel-free walking motion inspired by the famous kinetic Strandbeest sculptures. On the first day, attendees assemble the mechanical chassis, setting up a dual-motor system and a six-gear train to actuate the eight limbs smoothly. The second day covers embedded hardware, where participants wire an ATmega microcontroller, connect 12V directional LED indicator lights, and integrate an RF transmitter and receiver module. The workshop concludes with real-time testing, letting participants wirelessly navigate their completed robots through an obstacle course using multi-directional commands.",
 
     category: "WORKSHOP",
 
@@ -116,7 +116,25 @@ const events: Event[] = [
 
 ];
 
+const modalSlideVariants = {
+  enter: (direction: number) => ({
+    opacity: 0,
+    x: direction > 0 ? 45 : -45,
+  }),
+  center: {
+    opacity: 1,
+    x: 0,
+  },
+  exit: (direction: number) => ({
+    opacity: 0,
+    x: direction > 0 ? -45 : 45,
+  }),
+};
 
+const modalSlideTransition = {
+  duration: 0.35,
+  ease: [0.22, 1, 0.36, 1] as const,
+};
 
 export function EventsSection() {
   const AUTO_PLAY_MS = 3800;
@@ -674,7 +692,17 @@ export function EventsSection() {
 
               {/* Main content */}
 
-              <div className="event-modal-content">
+              <AnimatePresence mode="wait" initial={false} custom={direction}>
+  <motion.div
+    key={selectedEvent.id}
+    className="event-modal-content"
+    custom={direction}
+    variants={modalSlideVariants}
+    initial="enter"
+    animate="center"
+    exit="exit"
+    transition={modalSlideTransition}
+  >
 
                 {/* =========================
 
@@ -820,7 +848,7 @@ export function EventsSection() {
 
                     <Link
 
-                      href="https://events.vit.ac.in/events/ASME"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSejfK_Nk_6Zv_v-2VP_vl4Ays5ShnvS7dBFrjskqGGxvKvOKw/viewform?usp=publish-editor"
 
                       className="event-modal-button event-modal-button-primary"
 
@@ -831,14 +859,28 @@ export function EventsSection() {
                       <span>→</span>
 
                     </Link>
+                    <Link
 
+                      href="https://events.vit.ac.in/events/ASME"
 
+                      className="event-modal-button event-modal-button-primary"
+
+                    >
+
+                      <span>PAY NOW</span>
+
+                      <span>→</span>
+
+                    </Link>
 
                     
 
 
                   </motion.div>
-
+<p className="event-payment-note">
+  <strong>NOTE:</strong> Once payment is complete, fill out the
+  registration form to complete your registration successfully.
+</p>
                 </div>
 
 
@@ -961,7 +1003,8 @@ export function EventsSection() {
 
                 </motion.div>
 
-              </div>
+              </motion.div>
+              </AnimatePresence>
 
 
 

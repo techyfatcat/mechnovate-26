@@ -3190,44 +3190,146 @@ body.event-modal-open header {
 
 
 
-  /* -------------------------------------------------------
+  
+/* =========================================================
+   MODAL ACTIONS — TWO BUTTONS
+========================================================= */
 
-     MODAL ACTIONS
+.event-modal-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+  width: 100%;
+}
 
-  ------------------------------------------------------- */
+/* =========================================================
+   BASE BUTTON STYLE
+========================================================= */
 
+.event-modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 14px 16px;
 
+  border: 1px solid rgba(157, 166, 184, 0.25);
+  border-radius: 4px;
+  background: rgba(157, 166, 184, 0.04);
+
+  color: #a2a7b1;
+  font-family: "Oxanium", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Registration — outlined pink */
+
+.event-modal-button:first-child {
+  border-color: rgba(255, 79, 135, 0.55);
+  background: rgba(255, 79, 135, 0.06);
+  color: #ff4f87;
+}
+
+.event-modal-button:first-child:hover {
+  border-color: #ff4f87;
+  background: rgba(255, 79, 135, 0.13);
+  box-shadow: 0 0 20px rgba(255, 79, 135, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Payment — stronger pink emphasis */
+
+.event-modal-button:last-child {
+  border-color: #ff4f87;
+  background: #ff4f87;
+  color: #05080f;
+}
+
+.event-modal-button:last-child:hover {
+  border-color: #ff78a1;
+  background: #ff78a1;
+  color: #05080f;
+  box-shadow: 0 0 24px rgba(255, 79, 135, 0.22);
+  transform: translateY(-2px);
+}
+
+/* Arrow alignment */
+
+.event-modal-button span:last-child {
+  flex-shrink: 0;
+  font-size: 15px;
+  transition: transform 0.3s ease;
+}
+
+.event-modal-button:hover span:last-child {
+  transform: translateX(3px);
+}
+
+/* Keyboard accessibility */
+
+.event-modal-button:focus-visible {
+  outline: 2px solid #ff4f87;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
   .event-modal-actions {
-
-    grid-template-columns: 1fr;
-
-
-
-    gap: 8px;
-
-
-
-    margin-top: 25px;
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
-
-
 
   .event-modal-button {
+    padding: 13px 12px;
+    font-size: 10px;
+  }
+}
 
-    width: 100%;
-
-
-
-    padding: 12px 14px;
-
-
-
-    font-size: 8px;
-
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 700px) {
+  .event-modal-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 20px;
   }
 
+  .event-modal-button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 12px 10px;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    gap: 6px;
+  }
+
+  .event-modal-button span:last-child {
+    font-size: 12px;
+  }
+}
 
 
 
@@ -4012,4 +4114,21 @@ body.event-modal-open header {
 
   }
 
+}
+
+.event-payment-note {
+  padding-top: 25px;
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+  color: #a2a7b1;
+  font-family: "Oxanium", sans-serif;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.event-payment-note strong {
+  color: #ff4f87;
+  font-weight: 700;
 }
