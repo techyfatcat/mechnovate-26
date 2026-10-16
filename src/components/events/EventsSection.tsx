@@ -70,33 +70,33 @@ const events: Event[] = [
 
     image: "/images/events/CubeSat.png",
 
-    poster: "/images/events/cubesat1.jpeg",
+    poster: "/images/cubesatupdated.jpg",
 
   },
 
-  /* {
+   {
 
     id: "03",
 
-    title: "RC RACING",
+    title: "Track Zero",
 
     subtitle: "RACING COMPETITION",
 
     description:
 
-      "Speed, precision, control, and strategy come together on the track. The RC Racing Competition challenges participants to push their remote-controlled cars to the limit while navigating a demanding racing circuit. Participants will put their driving skills, reflexes, and machine control to the test as they race against the clock and their competitors.",
+      "In this Workshop you will master the fundamentals of robotics by building and programming your own autonomous line follower from scratch on day one. Once your machine is calibrated, put your engineering skills to the test in an action-packed competition, racing against fellow creators to optimize your code and claim the top spot!",
 
-    category: "COMPETITION",
+    category: "WORKSHOP/COMPETITION",
 
-    image: "/images/events/RCRacing.png",
+    image: "/images/trackzeroticket.png",
 
-    poster: "/images/events/image1.png",
+    poster: "/images/trackzero.jpg",
 
-  }, */
+  }, 
 
   {
 
-    id: "03",
+    id: "04",
 
     title: "OCTA-BOT",
 
