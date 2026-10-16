@@ -37,17 +37,8 @@ export function Header() {
     <header className="site-header">
       <div className="header-shell">
         <div className="header-inner">
+          {/* Mechnovate logo on the left */}
           <div className="brand-group">
-            <Link href="/" className="navbar-logo asme-badge" aria-label="ASME">
-              <Image
-                src="/images/asme.jpg"
-                alt="ASME"
-                width={64}
-                height={64}
-                priority
-              />
-            </Link>
-
             <Link
               href="/"
               className="navbar-logo mech-badge"
@@ -64,6 +55,7 @@ export function Header() {
             </Link>
           </div>
 
+          {/* Navigation in the center */}
           <nav className="desktop-nav" aria-label="Main navigation">
             {navigation.map((item) => (
               <Link
@@ -77,20 +69,48 @@ export function Header() {
             ))}
           </nav>
 
-          <Link href="/" className="navbar-logo vit-logo" aria-label="VIT">
-            <Image
-              src="/images/vit.jpg"
-              alt="VIT"
-              width={160}
-              height={52}
-              priority
-            />
-          </Link>
+          {/* ASME and VIT logos on the right */}
+          <div className="header-partner-logos">
+            <Link
+              href="https://asmevit.in/"
+              className="navbar-logo asme-badge"
+              aria-label="ASME"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/asme.jpg"
+                alt="ASME"
+                width={64}
+                height={64}
+                priority
+              />
+            </Link>
 
+            <Link
+              href="https://vit.ac.in/"
+              className="navbar-logo vit-logo"
+              aria-label="VIT"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/vit.jpg"
+                alt="VIT"
+                width={160}
+                height={52}
+                priority
+              />
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
           <button
             type="button"
             className={`mobile-menu-btn${mobileOpen ? " open" : ""}`}
-            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              mobileOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
           >

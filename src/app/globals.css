@@ -6877,15 +6877,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
 }
 
 .brand-group {
   display: flex;
   align-items: center;
-  gap: 12px;
   flex-shrink: 0;
 }
+
 
 .navbar-logo {
   width: 48px;
@@ -6903,13 +6902,34 @@ body {
   display: block;
 }
 
-/* Keep navigation centered between the logo groups */
 .desktop-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 2rem;
+  flex: 1;
 }
+
+.header-partner-logos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.header-partner-logos .asme-badge img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.header-partner-logos .vit-logo img {
+  width: 120px;
+  height: 44px;
+  object-fit: contain;
+}
+
 
 /* Tablet */
 @media (max-width: 900px) {
@@ -7680,5 +7700,154 @@ body {
     text-align: center !important;
     align-items: center !important;
     margin-bottom: 24px !important;
+  }
+}
+
+
+/* =========================================================
+   NAVBAR LOGOS — FINAL FIX (no overlap)
+   Desktop: ASME + VIT on the right, in normal flex flow
+   Mobile : Mechnovate + ASME + VIT on the left, menu button right
+   ========================================================= */
+
+/* --- shared: kill the fixed sizes / absolute positioning --- */
+.header-inner {
+  gap: 24px !important;
+}
+
+.brand-group {
+  flex: 0 0 auto !important;
+}
+
+.header-partner-logos {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex: 0 0 auto !important;
+  gap: 20px !important;
+  margin-left: auto !important;
+}
+
+.header-partner-logos .navbar-logo,
+.brand-group .navbar-logo {
+  width: auto !important;
+  height: auto !important;
+  flex: 0 0 auto !important;
+}
+
+.header-partner-logos .navbar-logo {
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.header-partner-logos .navbar-logo:hover {
+  transform: translateY(-1px) !important;
+}
+
+/* VIT was absolute — put it back into the flow */
+.header-partner-logos .vit-logo {
+  position: static !important;
+  right: auto !important;
+  top: auto !important;
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+
+.header-partner-logos .asme-badge img {
+  width: 68px !important;
+  height: 58px !important;
+}
+
+.header-partner-logos .vit-logo img {
+  width: 68px !important;
+  height: 58px !important;
+}
+
+/* --- smaller desktop / tablet --- */
+@media (max-width: 1100px) {
+  .header-partner-logos {
+    gap: 14px !important;
+  }
+  .header-partner-logos .asme-badge img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .header-partner-logos .vit-logo img {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+/* --- mobile: everything on the left, button on the right --- */
+@media (max-width: 780px) {
+  .header-inner {
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    padding: 0 14px 0 30px !important; /* 30px left clears the angled corner cut */
+  }
+
+  .brand-group {
+    padding-right: 0 !important;
+    border-right: 0 !important;
+  }
+
+  .brand-group .mech-badge img {
+    width: 80px !important;
+    height: 36px !important;
+  }
+
+  .header-partner-logos {
+    margin-left: 0 !important;      /* stay next to the Mechnovate logo */
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .header-partner-logos .asme-badge img {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 8px !important;
+  }
+
+  .header-partner-logos .vit-logo {
+    margin-right: 0 !important;
+  }
+
+  .header-partner-logos .vit-logo img {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 6px !important;
+    padding: 3px !important;
+  }
+
+  .mobile-menu-btn {
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* very small phones */
+@media (max-width: 380px) {
+  .header-inner {
+    gap: 10px !important;
+    padding-left: 26px !important;
+  }
+  .brand-group .mech-badge img {
+    width: 68px !important;
+    height: 32px !important;
+  }
+  .header-partner-logos {
+    gap: 8px !important;
+  }
+  .header-partner-logos .asme-badge img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .header-partner-logos .vit-logo img {
+    width: 64px !important;
+    height: 28px !important;
   }
 }
