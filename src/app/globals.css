@@ -7851,3 +7851,59 @@ body {
     height: 28px !important;
   }
 }
+
+/* =========================================================
+   FOOTER — ASME LOGO (right side)
+   ========================================================= */
+
+.mech-footer-partner {
+  grid-column: 3 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  margin-right: -117px
+}
+
+.mech-footer-asme {
+  display: inline-flex !important;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.mech-footer-asme img {
+  width: 96px !important;
+  height: 96px !important;
+  object-fit: contain !important;
+  background: #ffffff;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 79, 135, 0.35);
+  box-shadow: 0 0 12px rgba(255, 79, 135, 0.2);
+}
+
+.mech-footer-asme:hover {
+  transform: translateY(-2px);
+}
+
+/* Tablet: stacked layout, keep it on the right edge */
+@media (max-width: 900px) {
+  .mech-footer-partner {
+    grid-column: 1 !important;
+    justify-content: flex-start !important;
+    margin-right: 0px;
+  }
+}
+
+/* Mobile: footer is centered, so center the logo too */
+@media (max-width: 780px) {
+  .mech-footer-partner {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 8px !important;
+    margin-right: 0px;
+  }
+
+  .mech-footer-asme img {
+    width: 76px !important;
+    height: 76px !important;
+  }
+}

@@ -90,6 +90,22 @@ export function Footer() {
             <p>VIT, Vellore, Tamil Nadu, India</p>
           </div>
         </div>
+                <div className="mech-footer-partner">
+          <Link
+            href="https://asmevit.in/"
+            className="mech-footer-asme"
+            aria-label="ASME VIT"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/images/asme.jpg"
+              alt="ASME"
+              width={96}
+              height={96}
+            />
+          </Link>
+        </div>
       </div>
     </footer>
   );
