@@ -27,6 +27,7 @@ type Event = {
   image: string;
 
   poster: string;
+  price: number;
 
 };
 
@@ -51,6 +52,7 @@ const events: Event[] = [
     image: "/images/events/DiveX.png",
 
     poster: "/images/events/divex1.jpeg",
+    price: 550,
 
   },
 
@@ -71,6 +73,7 @@ const events: Event[] = [
     image: "/images/events/CubeSat.png",
 
     poster: "/images/cubesatupdated.jpg",
+    price: 550,
 
   },
 
@@ -78,7 +81,7 @@ const events: Event[] = [
 
     id: "03",
 
-    title: "Track Zero",
+    title: "TrackZero",
 
     subtitle: "RACING COMPETITION",
 
@@ -91,6 +94,7 @@ const events: Event[] = [
     image: "/images/trackzeroticket.png",
 
     poster: "/images/trackzero.jpg",
+    price: 500,
 
   }, 
 
@@ -111,6 +115,7 @@ const events: Event[] = [
     image: "/images/events/OctaBot.png",
 
     poster: "/images/events/octabot1.jpeg",
+    price: 550,
 
   },
 
@@ -817,6 +822,21 @@ export function EventsSection() {
                     {selectedEvent.description}
 
                   </motion.p>
+
+                  <motion.div
+                    className="event-price"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    aria-label={`Registration fee ₹${selectedEvent.price} plus GST`}
+                  >
+                    <span className="event-price-label">REGISTRATION FEE</span>
+                    <div className="event-price-amount">
+                      ₹{selectedEvent.price}
+                      <span> + GST</span>
+                    </div>
+                    
+                  </motion.div>
 
 
 

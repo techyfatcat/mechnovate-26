@@ -7907,3 +7907,59 @@ body {
     height: 76px !important;
   }
 }
+
+/* Event registration price — add to globals.css */
+.event-price {
+  position: relative;
+  margin: 22px 0;
+  padding: 16px 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.018)
+  );
+}
+
+.event-price-label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.event-price-amount {
+  color: #fff;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.event-price-amount span {
+  color: #ffb347;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.event-price p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .event-price {
+    margin: 16px 0;
+    padding: 14px 15px;
+  }
+
+  .event-price-amount {
+    font-size: 28px;
+  }
+}
