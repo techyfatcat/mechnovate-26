@@ -35,31 +35,31 @@ type Event = {
 
 const events: Event[] = [
 
+  // {
+
+  //   id: "01",
+
+  //   title: "DIVE X",
+
+  //   subtitle: "SUBMARINE WORKSHOP",
+
+  //   description:
+
+  //     "Dive into the world of underwater engineering with DIVE X, a hands-on submarine workshop that explores the fundamentals of underwater vehicles, buoyancy, propulsion, and control systems. Participants will gain practical insights into how submarines operate beneath the surface while exploring the engineering principles behind their design and movement.",
+
+  //   category: "WORKSHOP",
+
+  //   image: "/images/events/DiveX.png",
+
+  //   poster: "/images/events/divex1.jpeg",
+  //   price: 550,
+
+  // },
+
   {
 
     id: "01",
-
-    title: "DIVE X",
-
-    subtitle: "SUBMARINE WORKSHOP",
-
-    description:
-
-      "Dive into the world of underwater engineering with DIVE X, a hands-on submarine workshop that explores the fundamentals of underwater vehicles, buoyancy, propulsion, and control systems. Participants will gain practical insights into how submarines operate beneath the surface while exploring the engineering principles behind their design and movement.",
-
-    category: "WORKSHOP",
-
-    image: "/images/events/DiveX.png",
-
-    poster: "/images/events/divex1.jpeg",
-    price: 550,
-
-  },
-
-  {
-
-    id: "02",
-
+    
     title: "CUBESAT",
 
     subtitle: "SPACE SYSTEMS WORKSHOP",
@@ -79,7 +79,7 @@ const events: Event[] = [
 
    {
 
-    id: "03",
+    id: "02",
 
     title: "TrackZero",
 
@@ -100,7 +100,7 @@ const events: Event[] = [
 
   {
 
-    id: "04",
+    id: "03",
 
     title: "OCTA-BOT",
 
