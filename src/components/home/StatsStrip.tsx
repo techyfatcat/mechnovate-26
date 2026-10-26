@@ -25,12 +25,14 @@ export function SponsorsMarquee() {
                   aria-hidden={index >= sponsors.length}
                 >
                   <Image
-                    src={src}
-                    alt={index < sponsors.length ? `Sponsor ${index + 1}` : ""}
-                    width={140}
-                    height={50}
-                    className="sponsor-logo"
-                  />
+  src={src}
+  alt={index < sponsors.length ? `Sponsor ${index + 1}` : ""}
+  width={140}
+  height={50}
+  className="sponsor-logo"
+  key={`${src}-${index}`}
+  unoptimized
+/>
                 </div>
               ))}
             </div>
