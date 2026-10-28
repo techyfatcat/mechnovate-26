@@ -77,30 +77,30 @@ const events: Event[] = [
 
   },
 
-   {
+  //  {
 
-    id: "02",
+  //   id: "02",
 
-    title: "TrackZero",
+  //   title: "TrackZero",
 
-    subtitle: "RACING COMPETITION",
+  //   subtitle: "RACING COMPETITION",
 
-    description:
+  //   description:
 
-      "In this Workshop you will master the fundamentals of robotics by building and programming your own autonomous line follower from scratch on day one. Once your machine is calibrated, put your engineering skills to the test in an action-packed competition, racing against fellow creators to optimize your code and claim the top spot!",
+  //     "In this Workshop you will master the fundamentals of robotics by building and programming your own autonomous line follower from scratch on day one. Once your machine is calibrated, put your engineering skills to the test in an action-packed competition, racing against fellow creators to optimize your code and claim the top spot!",
 
-    category: "WORKSHOP/COMPETITION",
+  //   category: "WORKSHOP/COMPETITION",
 
-    image: "/images/trackzeroticket.png",
+  //   image: "/images/trackzeroticket.png",
 
-    poster: "/images/trackzero.jpg",
-    price: 500,
+  //   poster: "/images/trackzero.jpg",
+  //   price: 500,
 
-  }, 
+  // }, 
 
   {
 
-    id: "03",
+    id: "02",
 
     title: "OCTA-BOT",
 
